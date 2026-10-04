@@ -1,11 +1,11 @@
 title: Hill Mole
 tagline: Life is But a Dream
+# Placeholder of plain facts until Chris writes the one-sentence description.
 description: >-
-  Hill Mole is Chris Abraham's serialized spy novel: a man in Washington, DC,
-  slowly realizes he may be a mole amid the spycraft and intrigue around him.
+  Hill Mole is a serialized novel by Chris Abraham, written at hillmole.com
+  from 2005 to 2022.
 author: Chris Abraham
 lang: en
-genre: Spy fiction
 first_published: 2005-05-13
 image: /podcast/hillMole.png
 
@@ -18,22 +18,7 @@ kindle:
   publisher: Gerris Corp
   edition: 1st
   pages: 67
-  blurb: >-
-    I Was Merely a Dupe and a Fool is an introspective exploration of life in
-    Washington, D.C., through the eyes of an insider who has spent years
-    navigating the murky waters of the nation's capital. The book offers a
-    candid look at the realities behind the polished facades of government
-    buildings and the whispered conversations that shape national policy. It's
-    a journey through the psyche of a man who has come to realize that, despite
-    his best intentions, he has been a mere pawn in a much larger game,
-    manipulated and used by forces beyond his control.
-
-# Chris' author bio, from his Amazon author page.
-author_bio: >-
-  Chris Abraham is the author of Hill Mole. His writing examines how individuals
-  move through systems they did not design, often without fully realizing they
-  are inside them. The work is observational, introspective, and grounded in
-  lived experience rather than theory.
+  blurb: ""
 
 # Chris' profiles elsewhere (author sameAs in the schema).
 author_same_as:
