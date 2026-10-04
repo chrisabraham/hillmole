@@ -64,6 +64,10 @@ def recover_categories():
 
 TYPO_LOG = []
 
+# When this text last changed (encoding repair + typography pass). Feeds the
+# sitemap's <lastmod> and the schema's dateModified, so Google recrawls them.
+CONTENT_REVISED = "2026-10-04 12:00:00 -0500"
+
 
 def write_post(e, cats, dest):
     labels = [c["label"] for c in cats.values() if e["mt_id"] in c["ids"]]
@@ -86,6 +90,8 @@ def write_post(e, cats, dest):
         f"mt_basename: {e['basename']}",
         f"mt_id: {e['mt_id']}",
     ]
+    if changes or repair(e["raw_text"]) != e["raw_text"]:
+        fm.append(f"last_modified_at: {CONTENT_REVISED}")
     if e["excerpt"]:
         fm.append(f"description: {q(clean_title(e['excerpt']))}")
     if e["keywords"]:
