@@ -2,34 +2,9 @@
 layout: default
 title: About Hill Mole
 seo_title: "About Hill Mole and Chris Abraham"
-description: "Who wrote Hill Mole, when, where to start reading, the 2006 audio, and the Kindle edition."
+description: "Who wrote Hill Mole, and its history: first entry May 13, 2005; last entry June 11, 2022; Kindle edition 2024; GitHub Pages 2026."
 permalink: /about.html
 jsonld_type: AboutPage
-faq:
-  - q: What is Hill Mole?
-    a: "%DESCRIPTION%"
-  - q: Who wrote Hill Mole?
-    a: Chris Abraham wrote every entry.
-  - q: When was Hill Mole written?
-    a: >-
-      The first entry was published on May 13, 2005, and the most recent on
-      %LATEST%. Most of it was written in 2005 and from 2019 to 2022.
-  - q: Where should I start reading?
-    a: >-
-      At the very beginning, with "I Was Merely a Dupe and a Fool." Each entry
-      links to the next, so the novel reads in order from there.
-  - q: How long is it?
-    a: "%COUNT% entries, most of them a single paragraph or a few."
-  - q: Is there an audio version?
-    a: >-
-      Yes. In 2006 Chris Abraham read early chapters aloud as the Hill Mole
-      podcast, and the audio is still on this site.
-  - q: Is Hill Mole available as a book?
-    a: >-
-      Yes. Hill Mole: Life is But a Dream: I Was Merely a Dupe and a Fool was
-      published as a Kindle ebook by Gerris Corp on August 15, 2024.
-  - q: Why is there a star-nosed mole in the banner?
-    a: The first months of the novel include an entry explaining it.
 ---
 {%- assign first = site.posts.last -%}
 {%- assign latest = site.posts.first -%}
@@ -39,16 +14,13 @@ faq:
 <div class="entry-body about">
 <p>{{ site.description }} All {{ site.posts.size }} entries are here at their original addresses.</p>
 
-<h2 id="faq" class="faq-title">FAQ</h2>
-<dl class="faq">
-{%- for item in page.faq %}
-  <dt>{{ item.q }}</dt>
-  <dd>{{ item.a | replace: "%LATEST%", latest_date | replace: "%COUNT%", site.posts.size | replace: "%DESCRIPTION%", site.description }}
-  {%- if forloop.index == 4 %} <a href="{{ first.url | relative_url }}">Start reading</a>.{% endif %}
-  {%- if forloop.index == 6 %} <a href="{{ '/podcast/index.xml' | relative_url }}">Podcast feed</a>.{% endif %}
-  {%- if forloop.index == 7 %} <a href="{{ '/book.html' | relative_url }}">Hill Mole on Kindle</a>.{% endif %}
-  {%- if forloop.index == 8 %} <a href="{{ '/archives/2005/08/star-nosed_mole.html' | relative_url }}">Read it</a>.{% endif %}</dd>
-{%- endfor %}
+<h2 id="history" class="faq-title">History</h2>
+<dl class="details history">
+  <dt>May 13, 2005</dt><dd>First entry, <a href="{{ first.url | relative_url }}">"I Was Merely a Dupe and a Fool."</a></dd>
+  <dt>2005–2024</dt><dd>Written on Movable Type CGI</dd>
+  <dt>June 11, 2022</dt><dd>Last entry, <a href="{{ latest.url | relative_url }}">"{{ latest.title }}"</a></dd>
+  <dt>August 15, 2024</dt><dd><a href="{{ '/book.html' | relative_url }}">Kindle edition</a></dd>
+  <dt>October 4, 2026</dt><dd>Ported to GitHub Pages</dd>
 </dl>
 
 <h2 id="author">About the author</h2>

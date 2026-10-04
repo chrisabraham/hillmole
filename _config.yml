@@ -1,20 +1,17 @@
 title: Hill Mole
 tagline: Life is But a Dream
 # How the site describes Hill Mole. Every page, feed, schema node and
-# llms.txt reads these; nothing else hardcodes a description. The values
-# below are plain facts standing in until Chris writes his own.
-#
-# [[CHRIS WRITES: one-sentence description of Hill Mole]] -> replace `description`
+# llms.txt reads these; nothing else hardcodes a description.
 description: >-
-  Hill Mole is a serialized novel by Chris Abraham, written at hillmole.com
-  from 2005 to 2022.
-# [[CHRIS WRITES: short title-tag tagline]] -> replace `title_tagline`
-# (home page <title> is "Hill Mole: <title_tagline>"; keep it to 49 characters)
+  Hill Mole is Chris Abraham's serialized confession novel, written in
+  installments from 2005 to 2022 against an espionage backdrop in Washington, DC.
+# Home page <title> is "Hill Mole: <title_tagline>"; keep it to 49 characters.
 title_tagline: a serialized novel by Chris Abraham
-# [[CHRIS WRITES: genre]] -> uncomment and fill in (Book schema)
-# genre: ""
-# [[CHRIS WRITES: author bio]] -> uncomment and fill in (Person schema, About page)
-# author_bio: ""
+genre: Literary fiction
+author_bio: >-
+  Chris Abraham is a writer and podcaster based in Arlington, Virginia. He was
+  a bike courier in Washington, DC in 1989 and 1990, and those years became the
+  raw material for Hill Mole, which he started writing in 2005.
 author: Chris Abraham
 lang: en
 first_published: 2005-05-13
@@ -46,7 +43,7 @@ author_same_as:
 nav:
   - { title: Home, url: / }
   - { title: About, url: /about.html }
-  - { title: FAQ, url: /about.html#faq }
+  - { title: History, url: /about.html#history }
   - { title: Kindle book, url: /book.html }
   - { title: Archives, url: /archives.html }
   - { title: Colophon, url: /colophon.html }

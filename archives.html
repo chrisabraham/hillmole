@@ -4,8 +4,8 @@ title: Archives
 permalink: /archives.html
 ---
 <h1 class="archive-title">Archives</h1>
-<p>Every entry, newest first. Or start at the very <a href="{{ site.posts.last.url | relative_url }}">beginning</a>.</p>
-{% for post in site.posts %}
+<p>Every entry, oldest first.</p>
+{% assign chron = site.posts | reverse %}{% for post in chron %}
   {% assign y = post.date | date: "%Y" %}
   {% if y != last_y %}{% unless forloop.first %}</ul>{% endunless %}
 <h3 class="year" id="y{{ y }}">{{ y }}</h3>

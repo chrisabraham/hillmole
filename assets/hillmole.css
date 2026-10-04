@@ -116,6 +116,7 @@ h1, h2, h3 {
   border-left: 3px solid var(--rule);
 }
 .entry-body img, .entry-body iframe { max-width: 100%; height: auto; }
+.entry-body iframe.video { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; margin: 0 0 1.1em; }
 
 .date, .posted { font-family: var(--heading); font-size: .8rem; color: var(--muted); margin: 0 0 1rem; }
 
@@ -149,6 +150,7 @@ h1, h2, h3 {
   border-radius: 3px;
 }
 
+.latest { font-family: var(--heading); font-size: .85rem; color: var(--muted); margin: 0 0 1.25rem; }
 .intro { font-family: var(--heading); font-size: .9rem; color: var(--muted); margin: 0 0 1.5rem; }
 .faq dt { font-weight: bold; margin-top: 1.1em; }
 .faq dd { margin: .2em 0 0; }
