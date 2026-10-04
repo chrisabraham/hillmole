@@ -26,7 +26,8 @@ social_card: /assets/hillmole-card.jpg  # 1200x630 link preview, made from the b
 # The Kindle edition (from the Amazon listing, October 2026).
 kindle:
   asin: B0DD7VZJJB
-  url: https://www.amazon.com/dp/B0DD7VZJJB
+  url: https://www.amazon.com/dp/B0DD7VZJJB             # clean product URL (schema)
+  affiliate_url: https://www.amazon.com/dp/B0DD7VZJJB?tag=gerris-20  # Chris' Associates tag
   subtitle: "Life is But a Dream: I Was Merely a Dupe and a Fool"
   date_published: "2024-08-15"
   publisher: Gerris Corp

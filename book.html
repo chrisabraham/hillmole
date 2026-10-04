@@ -12,7 +12,7 @@ jsonld_type: ItemPage
 <div class="entry-body book">
 <p><strong>Hill Mole</strong>{% if k.subtitle != "" %}: <em>{{ k.subtitle }}</em>{% endif %}, by Chris Abraham, is available as a Kindle ebook on Amazon.</p>
 
-<p class="buy"><a class="button" href="{{ k.url }}" rel="noopener">Get Hill Mole on Kindle</a></p>
+<p class="buy"><a class="button" href="{{ k.affiliate_url }}" rel="sponsored noopener">Get Hill Mole on Kindle</a></p>
 
 {% if k.blurb != "" %}<blockquote>{{ k.blurb }}</blockquote>
 <p class="date">From the book's description on Amazon.</p>
@@ -28,4 +28,5 @@ jsonld_type: ItemPage
   <dt>ASIN</dt><dd>{{ k.asin }}</dd>
 </dl>
 
+<p class="date">As an Amazon Associate I earn from qualifying purchases.</p>
 </div>
