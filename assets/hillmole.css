@@ -1,6 +1,7 @@
-/* Hill Mole. Keeps the 2005 look (grey page, white column under the
-   star-nosed mole, lowercase headings, grey links) with readable type
-   and a dark theme. */
+/* Hill Mole. Keeps the 2005 look (grey page, a 700px white column under
+   the 700px star-nosed mole, lowercase headings, grey links) with readable
+   sans-serif type and a dark theme. The column matches the banner so the
+   GIF fills it at native size; on phones both scale down together. */
 
 :root {
   --page: #cccccc;
@@ -13,6 +14,8 @@
   --rule: #e2e2e2;
   --quote: #f4f4f4;
   --field: #ffffff;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --heading: "Trebuchet MS", var(--sans);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,8 +54,8 @@ body {
   margin: 0;
   background: var(--page);
   color: var(--ink);
-  font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-  font-size: 1.125rem;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
   line-height: 1.65;
 }
 
@@ -61,21 +64,21 @@ a:hover, a:focus-visible { background: var(--link-hover-bg); color: var(--link-h
 .entry-body a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
 #container {
-  max-width: 1000px;
+  max-width: 700px;
   margin: 0 auto;
   background: var(--paper);
 }
 
 #banner { background: #c0c0c0; line-height: 0; }
 #banner a, #banner a:hover { background: none; display: block; }
-#banner img { width: 100%; max-width: 700px; height: auto; }
+#banner img { display: block; width: 100%; height: auto; }
 
 .columns { padding: 0 16px; }
 
 .content { min-width: 0; padding: 1rem 0 2rem; }
 
 h1, h2, h3 {
-  font-family: "Trebuchet MS", Verdana, system-ui, sans-serif;
+  font-family: var(--heading);
   font-weight: normal;
   text-transform: lowercase;
   line-height: 1.25;
@@ -85,7 +88,7 @@ h1, h2, h3 {
 .entry h1 a:hover, .entry h2 a:hover, .entry h3 a:hover { color: var(--link-hover-ink); }
 .archive-title { font-size: 1.15rem; color: var(--muted); margin: 0 0 1.5rem; }
 
-.entry { max-width: 38em; margin-bottom: 2.5rem; }
+.entry { margin-bottom: 2.5rem; }
 .entry-body p { margin: 0 0 1.1em; }
 .entry-body blockquote {
   margin: 0 0 1.1em;
@@ -95,10 +98,10 @@ h1, h2, h3 {
 }
 .entry-body img, .entry-body iframe { max-width: 100%; height: auto; }
 
-.date, .posted { font-family: "Trebuchet MS", Verdana, system-ui, sans-serif; font-size: .8rem; color: var(--muted); margin: 0 0 1rem; }
+.date, .posted { font-family: var(--heading); font-size: .8rem; color: var(--muted); margin: 0 0 1rem; }
 
 .entry-nav {
-  font-family: "Trebuchet MS", Verdana, system-ui, sans-serif;
+  font-family: var(--heading);
   font-size: .9rem;
   text-align: center;
   margin: 1rem 0 1.75rem;
@@ -106,7 +109,7 @@ h1, h2, h3 {
 }
 
 .sidebar {
-  font-family: "Trebuchet MS", Verdana, system-ui, sans-serif;
+  font-family: var(--heading);
   font-size: .9rem;
   line-height: 1.5;
   color: var(--muted);
@@ -133,7 +136,7 @@ h1, h2, h3 {
 h3.year { font-size: 1.2rem; margin: 1.5rem 0 .4rem; border-bottom: 1px solid var(--rule); }
 
 .site-footer {
-  font-family: "Trebuchet MS", Verdana, system-ui, sans-serif;
+  font-family: var(--heading);
   font-size: .8rem;
   color: var(--muted);
   text-align: center;
@@ -147,13 +150,15 @@ h3.year { font-size: 1.2rem; margin: 1.5rem 0 .4rem; border-bottom: 1px solid va
   clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-@media (min-width: 860px) {
-  body { margin: 0 0 20px; }
-  .columns {
+@media (min-width: 700px) {
+  body { padding: 20px 0; }
+  .columns { padding: 0 2rem; }
+  .sidebar {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 200px;
-    gap: 2.5rem;
-    padding: 0 2rem;
+    grid-template-columns: minmax(0, 1fr) 160px;
+    column-gap: 2rem;
+    align-items: start;
   }
-  .sidebar { border-top: 0; padding-top: 1.5rem; }
+  .sidebar > * { grid-column: 1; }
+  .sidebar > .badge { grid-column: 2; grid-row: 1 / span 6; }
 }
