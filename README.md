@@ -52,3 +52,5 @@ The Gemfile pins the `github-pages` gem, so local builds match production. Plugi
 2. Set the custom domain in the repo's Pages settings, point DNS at GitHub Pages, then enforce HTTPS.
 3. Run the IndexNow workflow once by hand with "Submit every URL" checked.
 4. Submit `https://hillmole.com/sitemap.xml` in Google Search Console (the site's verification file is still in place) and Bing Webmaster Tools.
+
+The full step-by-step, with DNS records and the post-switch check, is in [`_migration/CUTOVER.md`](_migration/CUTOVER.md).
