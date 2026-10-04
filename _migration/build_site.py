@@ -108,9 +108,6 @@ def archive_pages(pub, cats):
         for i, (url, label, a, b) in enumerate(items):
             p = {"layout": "archive", "archive_type": kind, "title": label,
                  "permalink": url, "from": a.isoformat(), "to": b.isoformat()}
-            if kind in ("daily", "weekly"):
-                # Same entries as the monthly page; keep the URL, keep it out of search.
-                p["robots"], p["sitemap"] = "noindex, follow", False
             if i > 0:
                 p["prev_url"], p["prev_title"] = items[i - 1][:2]
             if i + 1 < len(items):

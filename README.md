@@ -40,7 +40,7 @@ The Gemfile pins the `github-pages` gem, so local builds match production. Plugi
 
 - `<title>` is at most 60 characters and the meta description at most 160, cut at word boundaries (`_includes/seo.html`, `_includes/fit.html`). The entry title on the page is never changed. To override either for one entry, set `seo_title` or `description` in its front matter.
 - JSON-LD on every page: the site is a `WebSite`, the novel a `Book`, each entry a `BlogPosting` + `Chapter` with its chapter number, plus breadcrumbs; the home page adds the 2006 `PodcastSeries`.
-- `sitemap.xml` (jekyll-sitemap) and `robots.txt`. MT's daily and weekly archives repeat the monthly pages, so they're `noindex, follow` and left out of the sitemap.
+- `sitemap.xml` (jekyll-sitemap) and `robots.txt`. Only the home page, the entries and `archives.html` are indexable. MT's monthly, weekly, daily and category archives repeat entry text, so they're `noindex, follow` (crawlable, not indexed) and left out of the sitemap.
 - `/llms.txt` (and the same content at `/llm.txt`) lists every entry; `/llms-full.txt` holds the full text.
 - IndexNow: `.github/workflows/indexnow.yml` pings Bing, Yandex and the rest with new or changed entries after each push. The key is `indexnow_key` in `_config.yml` and the matching `<key>.txt` at the root.
 - While `url` isn't `https://hillmole.com`, every page says `noindex` and IndexNow does nothing, so the github.io preview stays out of search.
