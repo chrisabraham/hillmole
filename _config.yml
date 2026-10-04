@@ -46,12 +46,23 @@ defaults:
       type: posts
     values:
       layout: post
+  # Indexable: home, entries, and archives.html (the table of contents).
+  # MT's monthly, weekly, daily and category pages repeat entry text, so
+  # they stay crawlable for links but out of search and the sitemap.
+  - scope:
+      path: ""
+      type: mtarchives
+    values:
+      robots: "noindex, follow"
+      sitemap: false
   # Deleted entries' old pages, served verbatim but not advertised (Chris will decide later).
   - scope: { path: "archives/2008/05/princey_lovey_b.html" }
     values: { sitemap: false }
   - scope: { path: "archives/2008/05/upon_meeting_my.html" }
     values: { sitemap: false }
   - scope: { path: "archives/2008/05/11" }
+    values: { sitemap: false }
+  - scope: { path: "archives/2008/05/11-week" }
     values: { sitemap: false }
   - scope: { path: "archives/2008/05/26" }
     values: { sitemap: false }
