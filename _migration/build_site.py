@@ -8,6 +8,7 @@ webroot, and writes into the repo:
   _mtarchives/       stub pages for MT's monthly/weekly/daily/category URLs
   archives/N.xml     per-entry TrackBack feeds, spam items removed
   images/ podcast/ and other static files, paths preserved
+  archives/YYYY/...  deleted entries' old pages, kept verbatim at Chris' request
   attic/             MT templates, mt.cgi and config, secrets stripped
 
 Safe to re-run; generated directories are rebuilt from scratch.
@@ -112,7 +113,10 @@ def archive_pages(pub, cats):
             if i + 1 < len(items):
                 p["next_url"], p["next_title"] = items[i + 1][:2]
             pages.append(p)
+    pub_ids = {e["mt_id"] for e in pub}
     for slug, c in cats.items():
+        if not pub_ids & set(c["ids"]):
+            continue  # lists only deleted entries; old page is kept verbatim instead
         pages.append({"layout": "archive", "archive_type": "category",
                       "title": c["label"], "permalink": f"/archives/{slug}/",
                       "category": c["label"]})
@@ -141,6 +145,44 @@ ORPHAN_REDIRECTS = {
     "/archives/2019/08/all_the_old_men.html": "/",
 }
 
+# Entries deleted from MT whose pages still had text. Chris wants them kept,
+# so they're served exactly as MT last wrote them, old styling and all.
+KEEP_ORPHANS = [
+    "archives/2008/05/princey_lovey_b.html",
+    "archives/2008/05/upon_meeting_my.html",
+    "archives/2022/10/theres_no_busin.html",
+    "archives/2023/02/chatgpt_rewrite.html",
+    "archives/2023/05/a_hill_mole_sho.html",
+    "archives/2023/05/a_hill_mole_sho_1.html",
+    "archives/2023/05/a_short_story_f.html",
+    "archives/2023/05/bard_turns_hill.html",
+    "archives/2023/05/excerpt_of_the.html",
+    "archives/2023/05/hill_mole_accor.html",
+    "archives/2023/05/the_mole_a_nove.html",
+]
+
+
+def keep_orphan_page(rel):
+    """True if an old date page lists only kept orphans; it's then served verbatim."""
+    h = open(f"{WEB}/{rel}", encoding="utf-8", errors="replace").read()
+    links = set(re.findall(r'<h3 id="a\d+"><a href="https?://[^/]+/([^"]+)"', h))
+    is_category = not re.match(r"archives/\d{4}/", rel)  # categories may be empty on the old site
+    return (bool(links) or is_category) and links <= set(KEEP_ORPHANS)
+
+
+def copy_kept_orphans():
+    """Copy kept orphan entries, and date pages listing only them, byte-for-byte."""
+    pages = [os.path.relpath(p, WEB) for p in
+             glob.glob(f"{WEB}/archives/[0-9]*/[0-9]*/**/index.html", recursive=True)
+             + glob.glob(f"{WEB}/archives/[0-9]*/[0-9]*/index.html")]
+    pages += [os.path.relpath(p, WEB) for p in glob.glob(f"{WEB}/archives/*/index.html")]
+    kept = list(KEEP_ORPHANS) + [p for p in sorted(set(pages)) if keep_orphan_page(p)]
+    for rel in kept:
+        os.makedirs(os.path.dirname(f"{REPO}/{rel}"), exist_ok=True)
+        shutil.copyfile(f"{WEB}/{rel}", f"{REPO}/{rel}")
+        os.chmod(f"{REPO}/{rel}", 0o644)
+    return kept
+
 
 def redirect_pages(pages):
     """Old date-archive pages for entries that moved or were deleted."""
@@ -150,7 +192,7 @@ def redirect_pages(pages):
     for p in sorted(glob.glob(f"{WEB}/archives/[0-9]*/[0-9]*/**/index.html", recursive=True)
                     + glob.glob(f"{WEB}/archives/[0-9]*/[0-9]*/index.html")):
         url = "/" + os.path.relpath(os.path.dirname(p), WEB) + "/"
-        if url in have:
+        if url in have or keep_orphan_page(os.path.relpath(p, WEB)):
             continue
         month = "/".join(url.split("/")[:4]) + "/"
         out.append({"permalink": url, "redirect_to": month if month in have else "/archives.html",
@@ -221,9 +263,11 @@ def main():
     pages = archive_pages(pub, cats)
     write_archives(pages + redirect_pages(pages))
     write_trackback_feeds()
+    kept = copy_kept_orphans()
     copy_static()
     write_attic()
-    print(f"{len(pub)} posts, {len(drafts)} drafts, {len(cats)} categories")
+    print(f"{len(pub)} posts, {len(drafts)} drafts, {len(cats)} categories, "
+          f"{len(kept)} old pages kept verbatim")
 
 
 if __name__ == "__main__":
