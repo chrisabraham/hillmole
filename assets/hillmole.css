@@ -1,7 +1,8 @@
 /* Hill Mole. Keeps the 2005 look (grey page, a 700px white column under
    the 700px star-nosed mole, lowercase headings, grey links) with black
-   sans-serif text on white. The column matches the banner so the
-   GIF fills it at native size; on phones both scale down together. */
+   sans-serif text on white by default; readers can switch to dark with
+   the button in the banner. The column matches the banner so the GIF
+   fills it at native size; on phones both scale down together. */
 
 :root {
   --page: #cccccc;
@@ -16,8 +17,23 @@
   --field: #ffffff;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --heading: "Trebuchet MS", var(--sans);
+  color-scheme: light;
 }
 
+/* Reader-chosen dark theme (set by the banner button, remembered per device). */
+:root[data-theme="dark"] {
+  --page: #141414;
+  --paper: #1c1c1c;
+  --ink: #e8e8e8;
+  --muted: #9a9a9a;
+  --link: #b3b3b3;
+  --link-hover-bg: #5a5a5a;
+  --link-hover-ink: #ffffff;
+  --rule: #333333;
+  --quote: #262626;
+  --field: #2a2a2a;
+  color-scheme: dark;
+}
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -42,9 +58,25 @@ a:hover, a:focus-visible { background: var(--link-hover-bg); color: var(--link-h
   background: var(--paper);
 }
 
-#banner { background: #c0c0c0; line-height: 0; }
+#banner { position: relative; background: #c0c0c0; line-height: 0; }
 #banner a, #banner a:hover { background: none; display: block; }
 #banner img { display: block; width: 100%; height: auto; }
+
+.theme-toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font: .75rem/1 var(--heading);
+  text-transform: lowercase;
+  color: #ffffff;
+  background: rgba(0, 0, 0, .55);
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 999px;
+  padding: .45em .8em;
+  cursor: pointer;
+}
+.theme-toggle:hover, .theme-toggle:focus-visible { background: rgba(0, 0, 0, .8); }
+.theme-toggle[hidden] { display: none; }
 
 .columns { padding: 0 16px; }
 
