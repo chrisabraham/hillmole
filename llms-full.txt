@@ -5,7 +5,7 @@ sitemap: false
 ---
 # Hill Mole
 
-> Hill Mole is Chris Abraham's serialized novel, published as a weblog at hillmole.com from May 2005 to June 2022. This file holds the full text of all {{ site.posts.size }} entries, oldest first. The text is © Chris Abraham; quote with attribution and a link to the entry.
+> {{ site.description }} This file holds the full text of all {{ site.posts.size }} entries, oldest first. The text is © Chris Abraham; quote with attribution and a link to the entry.
 {% assign chron = site.posts | reverse %}{% for post in chron %}
 ## {{ post.title }}
 

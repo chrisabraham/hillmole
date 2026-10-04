@@ -97,7 +97,8 @@ def write_post(e, cats, dest):
     if changes or repair(e["raw_text"]) != e["raw_text"]:
         fm.append(f"last_modified_at: {CONTENT_REVISED}")
     if e["excerpt"]:
-        fm.append(f"description: {q(clean_title(e['excerpt']))}")
+        # MT's excerpt field, kept for the record; descriptions use the opening words
+        fm.append(f"mt_excerpt: {q(clean_title(e['excerpt']))}")
     if e["keywords"]:
         fm.append(f"keywords: {q(e['keywords'])}")
     fm.append("---")
