@@ -1,0 +1,3 @@
+{%- comment -%} "Entry N of 309 · date · by Chris Abraham" for include.post. {%- endcomment -%}
+{%- assign _n = 0 -%}{%- for p in site.posts -%}{%- if p.url == include.post.url -%}{%- assign _n = site.posts.size | minus: forloop.index0 -%}{%- break -%}{%- endif -%}{%- endfor -%}
+<p class="date">Entry {{ _n }} of {{ site.posts.size }} · <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%B %-d, %Y" }}</time> · by <a href="{{ '/about.html' | relative_url }}" rel="author">Chris Abraham</a></p>
