@@ -2,23 +2,10 @@
 layout: default
 ---
 {%- assign post = site.posts.first -%}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Hill Mole",
-  "alternativeHeadline": {{ site.description | jsonify }},
-  "genre": "Serialized fiction",
-  "author": { "@type": "Person", "name": "Chris Abraham" },
-  "url": {{ '/' | absolute_url | jsonify }},
-  "dateCreated": {{ site.posts.last.date | date_to_xmlschema | jsonify }},
-  "dateModified": {{ post.date | date_to_xmlschema | jsonify }},
-  "inLanguage": "en"
-}
-</script>
+<h1 class="visually-hidden">Hill Mole: a serialized spy novel by Chris Abraham</h1>
 
 <article class="entry">
-  <h3{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  <h2{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
   <p class="date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
   <div class="entry-body">
 {{ post.content }}

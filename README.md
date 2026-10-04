@@ -35,3 +35,19 @@ bundle exec jekyll serve
 ```
 
 The Gemfile pins the `github-pages` gem, so local builds match production. Plugins are limited to the GitHub Pages whitelist.
+
+## Search and discovery
+
+- `<title>` is at most 60 characters and the meta description at most 160, cut at word boundaries (`_includes/seo.html`, `_includes/fit.html`). The entry title on the page is never changed. To override either for one entry, set `seo_title` or `description` in its front matter.
+- JSON-LD on every page: the site is a `WebSite`, the novel a `Book`, each entry a `BlogPosting` + `Chapter` with its chapter number, plus breadcrumbs; the home page adds the 2006 `PodcastSeries`.
+- `sitemap.xml` (jekyll-sitemap) and `robots.txt`. MT's daily and weekly archives repeat the monthly pages, so they're `noindex, follow` and left out of the sitemap.
+- `/llms.txt` (and the same content at `/llm.txt`) lists every entry; `/llms-full.txt` holds the full text.
+- IndexNow: `.github/workflows/indexnow.yml` pings Bing, Yandex and the rest with new or changed entries after each push. The key is `indexnow_key` in `_config.yml` and the matching `<key>.txt` at the root.
+- While `url` isn't `https://hillmole.com`, every page says `noindex` and IndexNow does nothing, so the github.io preview stays out of search.
+
+## Going live on hillmole.com
+
+1. In `_config.yml`: `url: "https://hillmole.com"` and `baseurl: ""`. Add a `CNAME` file containing `hillmole.com`.
+2. Set the custom domain in the repo's Pages settings, point DNS at GitHub Pages, then enforce HTTPS.
+3. Run the IndexNow workflow once by hand with "Submit every URL" checked.
+4. Submit `https://hillmole.com/sitemap.xml` in Google Search Console (the site's verification file is still in place) and Bing Webmaster Tools.

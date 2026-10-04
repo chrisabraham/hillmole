@@ -1,7 +1,17 @@
 title: Hill Mole
-description: Life is But a Dream
+tagline: Life is But a Dream
+description: >-
+  Hill Mole is Chris Abraham's serialized spy novel: a man in Washington, DC,
+  slowly realizes he may be a mole amid the spycraft and intrigue around him.
 author: Chris Abraham
-lang: en_US
+lang: en
+genre: Spy fiction
+first_published: 2005-05-13
+image: /podcast/hillMole.png
+
+# IndexNow (Bing, Yandex, Seznam, Naver). The matching <key>.txt sits at the
+# site root; .github/workflows/indexnow.yml pings after each push to main.
+indexnow_key: 7dd594bffe04697e0e6a936541e67315
 
 # Preview at chrisabraham.github.io/hillmole. At the DNS step, switch to
 # url: "https://hillmole.com" and baseurl: "" and add the CNAME file.
@@ -20,7 +30,6 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-seo-tag
   - jekyll-redirect-from
 
 feed:
@@ -37,8 +46,40 @@ defaults:
       type: posts
     values:
       layout: post
-      seo:
-        type: Article
+  # Deleted entries' old pages, served verbatim but not advertised (Chris will decide later).
+  - scope: { path: "archives/2008/05/princey_lovey_b.html" }
+    values: { sitemap: false }
+  - scope: { path: "archives/2008/05/upon_meeting_my.html" }
+    values: { sitemap: false }
+  - scope: { path: "archives/2008/05/11" }
+    values: { sitemap: false }
+  - scope: { path: "archives/2008/05/26" }
+    values: { sitemap: false }
+  - scope: { path: "archives/2022/10" }
+    values: { sitemap: false }
+  - scope: { path: "archives/2023" }
+    values: { sitemap: false }
+  - scope: { path: "archives/artificial_inte" }
+    values: { sitemap: false }
+  - scope: { path: "archives/chatgpt" }
+    values: { sitemap: false }
+  - scope: { path: "archives/google_bard" }
+    values: { sitemap: false }
+  - scope: { path: "archives/mata_hari" }
+    values: { sitemap: false }
+  - scope: { path: "archives/prenzlauer_berg" }
+    values: { sitemap: false }
+  # Host and install leftovers kept only so their old URLs answer.
+  - scope: { path: "default.html" }
+    values: { sitemap: false }
+  - scope: { path: "postinfo.html" }
+    values: { sitemap: false }
+  - scope: { path: "test.htm" }
+    values: { sitemap: false }
+  - scope: { path: "GOOGLEe028701e4dbb21d7.html" }
+    values: { sitemap: false }
+  - scope: { path: "googlee028701e4dbb21d7.html" }
+    values: { sitemap: false }
 
 exclude:
   - _migration
