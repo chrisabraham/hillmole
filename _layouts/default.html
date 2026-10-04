@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
+<script>try{if(localStorage.getItem("hillmole-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 {% include seo.html %}
-<meta name="theme-color" content="#cccccc">
+<meta name="theme-color" content="#cccccc" id="theme-color">
 <link rel="icon" type="image/png" href="{{ '/podcast/hillMole.png' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/podcast/hillMole.png' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/hillmole.css' | relative_url }}">
@@ -21,6 +21,7 @@
 <div id="container">
   <header id="banner">
     <a href="{{ '/' | relative_url }}" accesskey="1"><img src="{{ '/images/hillMole.gif' | relative_url }}" alt="Hill Mole" width="700" height="206"></a>
+    <button type="button" class="theme-toggle" id="theme-toggle" hidden>dark</button>
   </header>
   <div class="columns">
     <main class="content">
@@ -32,5 +33,24 @@
     <p>Ran on Movable Type CGI, 2005–2022. Now static on GitHub Pages.</p>
   </footer>
 </div>
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById("theme-toggle"),
+      meta = document.getElementById("theme-color");
+  function show(dark) {
+    btn.textContent = dark ? "light" : "dark";
+    btn.setAttribute("aria-label", dark ? "Switch to light reading mode" : "Switch to dark reading mode");
+    meta.setAttribute("content", dark ? "#141414" : "#cccccc");
+  }
+  show(root.getAttribute("data-theme") === "dark");
+  btn.hidden = false;
+  btn.addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") !== "dark";
+    if (dark) root.setAttribute("data-theme", "dark"); else root.removeAttribute("data-theme");
+    try { localStorage.setItem("hillmole-theme", dark ? "dark" : "light"); } catch (e) {}
+    show(dark);
+  });
+})();
+</script>
 </body>
 </html>
