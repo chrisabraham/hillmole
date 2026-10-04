@@ -6,15 +6,12 @@ layout: default
 
 <article class="entry">
   <h2{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-  <p class="date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
+  {% include byline.html post=post %}
   <div class="entry-body">
 {{ post.content }}
   </div>
 </article>
 
-<nav class="entry-nav" aria-label="Entries">
-  {% if post.previous %}<a href="{{ post.previous.url | relative_url }}" rel="prev">&laquo; {{ post.previous.title }}</a> |{% endif %}
-  <a href="{{ '/archives.html' | relative_url }}">Archives</a>
-</nav>
+{% include end-nav.html post=post %}
 
 <p class="intro">A serialized spy novel by <a href="{{ '/about.html' | relative_url }}">Chris Abraham</a>, {{ site.posts.size }} entries from {{ site.posts.last.date | date: "%Y" }} to {{ site.posts.first.date | date: "%Y" }}. Start at the very <a href="{{ site.posts.last.url | relative_url }}">beginning</a>, or read the latest above.</p>
