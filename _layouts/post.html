@@ -8,7 +8,7 @@ layout: default
 </nav>
 
 <article class="entry">
-  <h3><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h3>
+  <h1><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h1>
   <p class="date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
   <div class="entry-body">
 {{ content }}

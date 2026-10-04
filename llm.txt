@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /llm.txt
+sitemap: false
+---
+{%- comment -%} Common misspelling of llms.txt; same content. {%- endcomment -%}
+{% include llms.txt %}

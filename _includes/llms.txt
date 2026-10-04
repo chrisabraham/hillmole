@@ -1,0 +1,22 @@
+# Hill Mole
+
+> Hill Mole is Chris Abraham's serialized spy novel, published as a weblog at hillmole.com from May 2005 to June 2022: {{ site.posts.size }} short entries in which a man working in Washington, DC, slowly realizes he may be a mole amid the spycraft and intrigue around him.
+
+The entries are fiction, written in the first person, and are meant to be read in order from the first. Each entry has a permanent URL in the form /archives/YYYY/MM/name.html that has not changed since it was published. The text is © Chris Abraham; quote with attribution and a link to the entry.
+
+- [Full text of every entry]({{ '/llms-full.txt' | absolute_url }}): plain text, oldest first
+- [Start at the beginning]({{ site.posts.last.url | absolute_url }}): "{{ site.posts.last.title }}", {{ site.posts.last.date | date: "%B %-d, %Y" }}
+- [Latest entry]({{ site.posts.first.url | absolute_url }}): "{{ site.posts.first.title }}", {{ site.posts.first.date | date: "%B %-d, %Y" }}
+- [The star-nosed mole]({{ '/archives/2005/08/star-nosed_mole.html' | absolute_url }}): the creature in the banner
+- [All entries]({{ '/archives.html' | absolute_url }}): every entry by date
+
+## Entries
+{% assign chron = site.posts | reverse %}{% for post in chron %}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.date | date: "%Y-%m-%d" }}{% endfor %}
+
+## Optional
+
+- [Atom feed]({{ '/atom.xml' | absolute_url }})
+- [RSS 2.0 feed]({{ '/index.xml' | absolute_url }})
+- [Podcast feed]({{ '/podcast/index.xml' | absolute_url }}): early chapters read by the author, 2006
+- [Sitemap]({{ '/sitemap.xml' | absolute_url }})

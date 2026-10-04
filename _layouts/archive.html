@@ -7,7 +7,7 @@ layout: default
   {% if page.next_url %}| <a href="{{ page.next_url | relative_url }}">{{ page.next_title }} &raquo;</a>{% endif %}
 </nav>
 
-<h2 class="archive-title">{{ page.title }}</h2>
+<h1 class="archive-title">{{ page.title }}</h1>
 
 {% assign shown = 0 %}
 {% for post in site.posts %}
@@ -19,7 +19,7 @@ layout: default
   {% endif %}
   {% assign shown = shown | plus: 1 %}
 <article class="entry">
-  <h3{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  <h2{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
   <p class="date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
   <div class="entry-body">
 {{ post.content }}

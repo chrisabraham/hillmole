@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /llms-full.txt
+sitemap: false
+---
+# Hill Mole
+
+> Hill Mole is Chris Abraham's serialized spy novel, published as a weblog at hillmole.com from May 2005 to June 2022. This file holds the full text of all {{ site.posts.size }} entries, oldest first. The text is © Chris Abraham; quote with attribution and a link to the entry.
+{% assign chron = site.posts | reverse %}{% for post in chron %}
+## {{ post.title }}
+
+{{ post.date | date: "%B %-d, %Y" }} | {{ post.url | absolute_url }}
+
+{{ post.content | strip_html | replace: "&amp;", "&" | replace: "&quot;", '"' | replace: "&#39;", "'" | replace: "&nbsp;", " " | replace: "&#160;", " " | replace: "&lt;", "<" | replace: "&gt;", ">" | strip }}
+{% endfor %}
