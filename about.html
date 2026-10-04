@@ -28,6 +28,10 @@ faq:
     a: >-
       Yes. In 2006 Chris Abraham read early chapters aloud as the Hill Mole
       podcast, and the audio is still on this site.
+  - q: Is Hill Mole available as a book?
+    a: >-
+      Yes. Hill Mole: Life is But a Dream: I Was Merely a Dupe and a Fool was
+      published as a Kindle ebook by Gerris Corp on August 15, 2024.
   - q: Why is there a star-nosed mole in the banner?
     a: The first months of the novel include an entry explaining it.
 ---
@@ -39,15 +43,21 @@ faq:
 <div class="entry-body about">
 <p><strong>Hill Mole</strong> is a serialized spy novel by Chris Abraham, published on this site one entry at a time from {{ first.date | date: "%B %Y" }} to {{ latest.date | date: "%B %Y" }}. All {{ site.posts.size }} entries are here at their original addresses.</p>
 
+<h2 id="faq" class="faq-title">FAQ</h2>
 <dl class="faq">
 {%- for item in page.faq %}
   <dt>{{ item.q }}</dt>
   <dd>{{ item.a | replace: "%LATEST%", latest_date | replace: "%COUNT%", site.posts.size }}
   {%- if forloop.index == 4 %} <a href="{{ first.url | relative_url }}">Start reading</a>.{% endif %}
   {%- if forloop.index == 6 %} <a href="{{ '/podcast/index.xml' | relative_url }}">Podcast feed</a>.{% endif %}
-  {%- if forloop.index == 7 %} <a href="{{ '/archives/2005/08/star-nosed_mole.html' | relative_url }}">Read it</a>.{% endif %}</dd>
+  {%- if forloop.index == 7 %} <a href="{{ '/book.html' | relative_url }}">Hill Mole on Kindle</a>.{% endif %}
+  {%- if forloop.index == 8 %} <a href="{{ '/archives/2005/08/star-nosed_mole.html' | relative_url }}">Read it</a>.{% endif %}</dd>
 {%- endfor %}
 </dl>
+
+<h2 id="author">About the author</h2>
+<p>{{ site.author_bio }}</p>
+<p>Hill Mole is also a Kindle ebook: <a href="{{ '/book.html' | relative_url }}"><em>{{ site.kindle.subtitle }}</em></a>.</p>
 
 <p><a href="{{ '/archives.html' | relative_url }}">Every entry, by date</a></p>
 </div>

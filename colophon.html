@@ -1,0 +1,28 @@
+---
+layout: default
+title: Colophon
+seo_title: "Colophon: how the Hill Mole site is made"
+description: "How hillmole.com is built: Movable Type from 2005, static Jekyll on GitHub Pages now, the original 700px design, type, feeds, and unchanged URLs."
+permalink: /colophon.html
+jsonld_type: WebPage
+---
+<h1 class="archive-title">Colophon</h1>
+
+<div class="entry-body colophon">
+<p><strong>Hill Mole</strong> is written by <a href="{{ '/about.html' | relative_url }}" rel="author">Chris Abraham</a>. The first entry went up on {{ site.posts.last.date | date: "%B %-d, %Y" }}.</p>
+
+<h2>Software</h2>
+<p>From 2005 the site ran on Movable Type 3, a Perl CGI weblog engine backed by MySQL, which wrote every page out as static HTML. When a server upgrade left its CGI unable to run, the site moved to <a href="https://jekyllrb.com/">Jekyll</a> and is now published by <a href="https://pages.github.com/">GitHub Pages</a>. The source is at <a href="https://github.com/chrisabraham/hillmole">github.com/chrisabraham/hillmole</a>, and the original Movable Type templates are kept there in the attic.</p>
+
+<h2>Text and addresses</h2>
+<p>Every entry was carried over exactly as Movable Type published it; the only changes were repairs to garbled characters. Every entry keeps its original address, in the form <code>/archives/YYYY/MM/name.html</code>, along with the old monthly, daily, weekly and category pages and the old feeds.</p>
+
+<h2>Design</h2>
+<p>The layout is the 2005 template: a white column exactly as wide as the 700-pixel banner, on a grey page, with lowercase headings and grey links. Body text is set in your system's sans-serif; headings in Trebuchet MS. Pages are black on white; the button in the banner switches to a dark reading mode, and that choice is kept only in your own browser.</p>
+
+<h2>The banner</h2>
+<p>The creature in the banner is a <a href="{{ '/archives/2005/08/star-nosed_mole.html' | relative_url }}">star-nosed mole</a>.</p>
+
+<h2>Feeds and indexes</h2>
+<p><a href="{{ '/atom.xml' | relative_url }}">Atom</a>, <a href="{{ '/index.xml' | relative_url }}">RSS 2.0</a> and <a href="{{ '/index.rdf' | relative_url }}">RSS 1.0</a> feeds; the <a href="{{ '/podcast/index.xml' | relative_url }}">podcast feed</a>; a <a href="{{ '/sitemap.xml' | relative_url }}">sitemap</a>; and <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a> with <a href="{{ '/llms-full.txt' | relative_url }}">the full text</a> for AI tools.</p>
+</div>

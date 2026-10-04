@@ -9,6 +9,45 @@ genre: Spy fiction
 first_published: 2005-05-13
 image: /podcast/hillMole.png
 
+# The Kindle edition (from the Amazon listing, October 2026).
+kindle:
+  asin: B0DD7VZJJB
+  url: https://www.amazon.com/dp/B0DD7VZJJB
+  subtitle: "Life is But a Dream: I Was Merely a Dupe and a Fool"
+  date_published: "2024-08-15"
+  publisher: Gerris Corp
+  edition: 1st
+  pages: 67
+  blurb: >-
+    I Was Merely a Dupe and a Fool is an introspective exploration of life in
+    Washington, D.C., through the eyes of an insider who has spent years
+    navigating the murky waters of the nation's capital. The book offers a
+    candid look at the realities behind the polished facades of government
+    buildings and the whispered conversations that shape national policy. It's
+    a journey through the psyche of a man who has come to realize that, despite
+    his best intentions, he has been a mere pawn in a much larger game,
+    manipulated and used by forces beyond his control.
+
+# Chris' author bio, from his Amazon author page.
+author_bio: >-
+  Chris Abraham is the author of Hill Mole. His writing examines how individuals
+  move through systems they did not design, often without fully realizing they
+  are inside them. The work is observational, introspective, and grounded in
+  lived experience rather than theory.
+
+# Chris' profiles elsewhere (author sameAs in the schema), e.g.
+# - https://www.linkedin.com/in/...
+author_same_as: []
+
+# Site menu, shown under the banner and in the footer.
+nav:
+  - { title: Home, url: / }
+  - { title: About, url: /about.html }
+  - { title: FAQ, url: /about.html#faq }
+  - { title: Kindle book, url: /book.html }
+  - { title: Archives, url: /archives.html }
+  - { title: Colophon, url: /colophon.html }
+
 # IndexNow (Bing, Yandex, Seznam, Naver). The matching <key>.txt sits at the
 # site root; .github/workflows/indexnow.yml pings after each push to main.
 indexnow_key: 7dd594bffe04697e0e6a936541e67315
