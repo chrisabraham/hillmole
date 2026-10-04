@@ -58,10 +58,10 @@ nav:
 # site root; .github/workflows/indexnow.yml pings after each push to main.
 indexnow_key: 7dd594bffe04697e0e6a936541e67315
 
-# Preview at chrisabraham.github.io/hillmole. At the DNS step, switch to
-# url: "https://hillmole.com" and baseurl: "" and add the CNAME file.
-url: "https://chrisabraham.github.io"
-baseurl: "/hillmole"
+# Live on hillmole.com. (The github.io preview used
+# url "https://chrisabraham.github.io" and baseurl "/hillmole".)
+url: "https://hillmole.com"
+baseurl: ""
 
 # Movable Type stamped every entry at a fixed UTC-5 (no DST). Etc/GMT+5 is
 # POSIX for UTC-5, so dates and archive days match the old site exactly.
