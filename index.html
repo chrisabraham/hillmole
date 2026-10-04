@@ -3,6 +3,7 @@ layout: default
 ---
 {%- assign post = site.posts.first -%}
 <h1 class="visually-hidden">Hill Mole: a serialized spy novel by Chris Abraham</h1>
+<p class="intro">A serialized spy novel by <a href="{{ '/about.html' | relative_url }}">Chris Abraham</a>, {{ site.posts.size }} entries from {{ site.posts.last.date | date: "%Y" }} to {{ site.posts.first.date | date: "%Y" }}. Start at the very <a href="{{ site.posts.last.url | relative_url }}">beginning</a>, or read the latest below.</p>
 
 <article class="entry">
   <h2{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>

@@ -9,7 +9,8 @@ layout: default
 
 <article class="entry">
   <h1><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h1>
-  <p class="date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+  {%- assign n = 0 -%}{%- for p in site.posts -%}{%- if p.url == page.url -%}{%- assign n = site.posts.size | minus: forloop.index0 -%}{%- break -%}{%- endif -%}{%- endfor %}
+  <p class="date">Entry {{ n }} of {{ site.posts.size }} · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> · by <a href="{{ '/about.html' | relative_url }}" rel="author">Chris Abraham</a></p>
   <div class="entry-body">
 {{ content }}
   </div>

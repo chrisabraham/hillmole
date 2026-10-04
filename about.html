@@ -1,0 +1,53 @@
+---
+layout: default
+title: About Hill Mole
+seo_title: "About Hill Mole, a serialized spy novel by Chris Abraham"
+description: "What Hill Mole is, who wrote it, where to start reading, and how the serialized spy novel by Chris Abraham ran on hillmole.com from 2005 to 2022."
+permalink: /about.html
+jsonld_type: AboutPage
+faq:
+  - q: What is Hill Mole?
+    a: >-
+      Hill Mole is a serialized spy novel by Chris Abraham, published one short
+      entry at a time on hillmole.com. Its narrator, a man who has worked for years
+      in the private sector in Washington, DC, slowly comes to suspect that he is a
+      mole, as he recognizes the spycraft and intrigue all around him.
+  - q: Who wrote Hill Mole?
+    a: Chris Abraham wrote every entry.
+  - q: When was Hill Mole written?
+    a: >-
+      The first entry was published on May 13, 2005, and the most recent on
+      %LATEST%. Most of it was written in 2005 and from 2019 to 2022.
+  - q: Where should I start reading?
+    a: >-
+      At the very beginning, with "I Was Merely a Dupe and a Fool." Each entry
+      links to the next, so the novel reads in order from there.
+  - q: How long is it?
+    a: "%COUNT% entries, most of them a single paragraph or a few."
+  - q: Is there an audio version?
+    a: >-
+      Yes. In 2006 Chris Abraham read early chapters aloud as the Hill Mole
+      podcast, and the audio is still on this site.
+  - q: Why is there a star-nosed mole in the banner?
+    a: The first months of the novel include an entry explaining it.
+---
+{%- assign first = site.posts.last -%}
+{%- assign latest = site.posts.first -%}
+{%- capture latest_date -%}{{ latest.date | date: "%B %-d, %Y" }}{%- endcapture -%}
+<h1 class="archive-title">About Hill Mole</h1>
+
+<div class="entry-body about">
+<p><strong>Hill Mole</strong> is a serialized spy novel by Chris Abraham, published on this site one entry at a time from {{ first.date | date: "%B %Y" }} to {{ latest.date | date: "%B %Y" }}. All {{ site.posts.size }} entries are here at their original addresses.</p>
+
+<dl class="faq">
+{%- for item in page.faq %}
+  <dt>{{ item.q }}</dt>
+  <dd>{{ item.a | replace: "%LATEST%", latest_date | replace: "%COUNT%", site.posts.size }}
+  {%- if forloop.index == 4 %} <a href="{{ first.url | relative_url }}">Start reading</a>.{% endif %}
+  {%- if forloop.index == 6 %} <a href="{{ '/podcast/index.xml' | relative_url }}">Podcast feed</a>.{% endif %}
+  {%- if forloop.index == 7 %} <a href="{{ '/archives/2005/08/star-nosed_mole.html' | relative_url }}">Read it</a>.{% endif %}</dd>
+{%- endfor %}
+</dl>
+
+<p><a href="{{ '/archives.html' | relative_url }}">Every entry, by date</a></p>
+</div>
