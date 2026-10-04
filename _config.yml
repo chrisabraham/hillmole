@@ -1,0 +1,50 @@
+title: Hill Mole
+description: Life is But a Dream
+author: Chris Abraham
+lang: en_US
+
+# Preview at chrisabraham.github.io/hillmole. At the DNS step, switch to
+# url: "https://hillmole.com" and baseurl: "" and add the CNAME file.
+url: "https://chrisabraham.github.io"
+baseurl: "/hillmole"
+
+# Movable Type stamped every entry at a fixed UTC-5 (no DST). Etc/GMT+5 is
+# POSIX for UTC-5, so dates and archive days match the old site exactly.
+timezone: Etc/GMT+5
+
+# New posts get the old MT URL shape: /archives/YYYY/MM/slug.html
+permalink: /archives/:year/:month/:slug.html
+
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+
+feed:
+  path: atom.xml
+
+# MT's monthly, weekly, daily and category archive URLs
+collections:
+  mtarchives:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      seo:
+        type: Article
+
+exclude:
+  - _migration
+  - attic
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - "*.tar.gz"

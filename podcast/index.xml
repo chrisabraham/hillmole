@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<channel>
+<title>Hill Mole</title>
+<link>http://www.hillmole.com</link>
+<language>en-us</language>
+<copyright>&#xA9; 2006 Chris Abraham</copyright>
+<itunes:subtitle>Hill Mole Audio Book Podcast</itunes:subtitle>
+<itunes:author>Chris Abraham</itunes:author>
+<itunes:summary>Hill Mole is a serialized audio book spy novel about a guy who is becoming aware that he might in fact be a mole as he recognizes all the spycraft and intrigue surrounding him.</itunes:summary>
+<description>Hill Mole is a serialized audio book spy novel about a guy who is becoming aware that he might in fact be a mole as he recognizes all the spycraft and intrigue surrounding.</description>
+<itunes:owner>
+<itunes:name>Chris Abraham</itunes:name>
+<itunes:email>cja@well.com</itunes:email>
+</itunes:owner>
+<itunes:image href="http://hillmole.com/podcast/hillMole.png" />
+<itunes:category text="Arts">
+<itunes:category text="Literature"/>
+</itunes:category>
+<itunes:category text="Society &amp; Culture">
+<itunes:category text="Personal Journals"/>
+<itunes:category text="Philosophy"/>
+</itunes:category>
+<item>
+<title>Bike Messenger</title>
+<itunes:author>Chris Abraham</itunes:author>
+<itunes:subtitle>Chapter 9-14 of Hill Mole</itunes:subtitle>
+<itunes:summary>Since I have lived here in the city, the boundaries have become closer and closer.</itunes:summary>
+<enclosure url="http://hillmole.com/podcast/ch9-14messenger.mp3" length="2065694" type="audio/mpeg" />
+<guid>http://hillmole.com/podcast/ch9-14messenger.mp3</guid>
+<pubDate>Mon, 30 Oct 2006 18:15:12 GMT</pubDate>
+<itunes:duration>4:19</itunes:duration>
+<itunes:keywords>audio book, audio novel, audiobook, spies, moles, capitol hill, washington, intrigue, dupe, fool, hill, novel, hill mole, chris abraham</itunes:keywords>
+</item>
+
+<item>
+<title>Inside the Beltway</title>
+<itunes:author>Chris Abraham</itunes:author>
+<itunes:subtitle>Chapter 2-8 of Hill Mole</itunes:subtitle>
+<itunes:summary>I have been working in the private sector in Washington, DC, for eleven years.</itunes:summary>
+<enclosure url="http://hillmole.com/podcast/ch2-8beltway.mp3" length="1723858" type="audio/mpeg" />
+<guid>http://hillmole.com/podcast/ch2-8beltway.mp3</guid>
+<pubDate>Mon, 9 Oct 2006 18:00:00 GMT</pubDate>
+<itunes:duration>3:30</itunes:duration>
+<itunes:keywords>audio book, audio novel, audiobook, spies, moles, capitol hill, washington, intrigue, dupe, fool, hill, novel, hill mole, chris abraham</itunes:keywords>
+</item>
+<item>
+<title>I Was Merely a Dupe and a Fool</title>
+<itunes:author>Chris Abraham</itunes:author>
+<itunes:subtitle>Chapter 1 of Hill Mole</itunes:subtitle>
+<itunes:summary>No matter how independent you believe yourself, you are always part of some greater plan.</itunes:summary>
+<enclosure url="http://hillmole.com/podcast/ch1dupefool.mp3" length="433152" type="audio/mpeg" />
+<guid>http://hillmole.com/podcast/ch1dupefool.mp3</guid>
+<pubDate>Mon, 9 Oct 2006 17:00:00 GMT</pubDate>
+<itunes:duration>0:53</itunes:duration>
+<itunes:keywords>audio book, audio novel, audiobook, spies, moles, capitol hill, washington, intrigue, dupe, fool, hill, novel, hill mole, chris abraham</itunes:keywords>
+</item>
+</channel>
+</rss>

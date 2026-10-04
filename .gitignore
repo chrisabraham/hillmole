@@ -1,0 +1,13 @@
+# Never commit the cPanel backup: it holds the DB dump, shadow file, and SSL keys.
+*.tar.gz
+*.sql
+
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+
+# Unpublished drafts stay out of this public repo until Chris decides where they live.
+_drafts/
+__pycache__/

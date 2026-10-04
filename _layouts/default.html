@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+{% seo %}
+<link rel="stylesheet" href="{{ '/assets/hillmole.css' | relative_url }}">
+<link rel="alternate" type="application/atom+xml" title="Hill Mole (Atom)" href="{{ '/atom.xml' | relative_url }}">
+<link rel="alternate" type="application/rss+xml" title="Hill Mole (RSS)" href="{{ '/index.xml' | relative_url }}">
+{%- if page.previous %}
+<link rel="prev" href="{{ page.previous.url | relative_url }}">{% endif %}
+{%- if page.next %}
+<link rel="next" href="{{ page.next.url | relative_url }}">{% endif %}
+</head>
+<body>
+<div id="container">
+  <header id="banner">
+    <a href="{{ '/' | relative_url }}" accesskey="1"><img src="{{ '/images/hillMole.gif' | relative_url }}" alt="Hill Mole" width="700" height="206"></a>
+  </header>
+  <div class="columns">
+    <main class="content">
+{{ content }}
+    </main>
+    {% include sidebar.html %}
+  </div>
+  <footer class="site-footer">
+    <p>Ran on Movable Type CGI, 2005–2022. Now static on GitHub Pages.</p>
+  </footer>
+</div>
+</body>
+</html>

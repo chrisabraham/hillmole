@@ -1,0 +1,15 @@
+---
+layout: default
+title: Archives
+permalink: /archives.html
+---
+<h2 class="archive-title">Archives</h2>
+<p>Every entry, newest first. Or start at the very <a href="{{ site.posts.last.url | relative_url }}">beginning</a>.</p>
+{% for post in site.posts %}
+  {% assign y = post.date | date: "%Y" %}
+  {% if y != last_y %}{% unless forloop.first %}</ul>{% endunless %}
+<h3 class="year" id="y{{ y }}">{{ y }}</h3>
+<ul class="toc">{% assign last_y = y %}{% endif %}
+  <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="date">{{ post.date | date: "%b %-d" }}</span></li>
+  {% if forloop.last %}</ul>{% endif %}
+{% endfor %}

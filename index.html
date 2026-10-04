@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{%- assign post = site.posts.first -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Hill Mole",
+  "alternativeHeadline": {{ site.description | jsonify }},
+  "genre": "Serialized fiction",
+  "author": { "@type": "Person", "name": "Chris Abraham" },
+  "url": {{ '/' | absolute_url | jsonify }},
+  "dateCreated": {{ site.posts.last.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ post.date | date_to_xmlschema | jsonify }},
+  "inLanguage": "en"
+}
+</script>
+
+<article class="entry">
+  <h3{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  <p class="date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
+  <div class="entry-body">
+{{ post.content }}
+  </div>
+</article>
+
+<nav class="entry-nav" aria-label="Entries">
+  {% if post.previous %}<a href="{{ post.previous.url | relative_url }}" rel="prev">&laquo; {{ post.previous.title }}</a> |{% endif %}
+  <a href="{{ '/archives.html' | relative_url }}">Archives</a>
+</nav>

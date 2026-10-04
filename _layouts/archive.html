@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<nav class="entry-nav archive-nav" aria-label="Archives">
+  {% if page.prev_url %}<a href="{{ page.prev_url | relative_url }}">&laquo; {{ page.prev_title }}</a> |{% endif %}
+  <a href="{{ '/' | relative_url }}">Main</a>
+  {% if page.next_url %}| <a href="{{ page.next_url | relative_url }}">{{ page.next_title }} &raquo;</a>{% endif %}
+</nav>
+
+<h2 class="archive-title">{{ page.title }}</h2>
+
+{% assign shown = 0 %}
+{% for post in site.posts %}
+  {% if page.archive_type == "category" %}
+    {% unless post.categories contains page.category %}{% continue %}{% endunless %}
+  {% else %}
+    {% assign d = post.date | date: "%Y-%m-%d" %}
+    {% if d < page.from or d > page.to %}{% continue %}{% endif %}
+  {% endif %}
+  {% assign shown = shown | plus: 1 %}
+<article class="entry">
+  <h3{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  <p class="date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
+  <div class="entry-body">
+{{ post.content }}
+  </div>
+  <p class="posted"><a href="{{ post.url | relative_url }}">Permalink</a></p>
+</article>
+{% endfor %}
+{% if shown == 0 %}<p>No entries here any more. <a href="{{ '/archives.html' | relative_url }}">Every entry</a> is listed in the archives.</p>{% endif %}
