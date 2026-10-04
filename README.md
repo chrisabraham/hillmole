@@ -19,7 +19,7 @@ Push to `main` and GitHub Pages publishes it at `/archives/2026/10/a-new-chapter
 
 ## What's where
 
-- `_posts/`: the 309 published entries from Movable Type, one `.html` file each, with an explicit `permalink` matching the original URL. Bodies are what MT published, plus two deliberate changes, every one listed in `_migration/typography-changes.log`: encoding repairs, and `_migration/typography.py` (no hyperlinks in the prose except the 2006 `[Listen]` podcast links; `--` to closed-up em dash; `...` to `…`; curly quotes). They're generated, so **don't edit these by hand**; change the generator and re-run it.
+- `_posts/`: the 309 published entries from Movable Type, one `.html` file each, with an explicit `permalink` matching the original URL. Bodies are what MT published, plus deliberate changes, every one listed in `_migration/typography-changes.log`: encoding repairs; spelling and grammar fixes from `_migration/corrections.tsv` (one row per fix; delete a row to undo it); and `_migration/typography.py` (no hyperlinks in the prose except the 2006 `[Listen]` podcast links; `--` to closed-up em dash; `...` to `…`; curly quotes). They're generated, so **don't edit these by hand**; change the generator and re-run it.
 - New entries: write plain text. No links in the prose; use `—` (closed up), `…` and curly quotes, or plain `--`, `...` and straight quotes, which you can convert later.
 - `_mtarchives/`: stubs for MT's monthly, weekly, daily and category archive URLs, plus redirects for pages MT left behind after entries moved. Generated; covers 2005–2022.
 - `archives/N.xml`: MT's per-entry TrackBack feeds, kept so their URLs answer. The spam pings in them were removed.
