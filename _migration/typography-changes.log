@@ -1,6 +1,6 @@
-Per-entry changes from typography.py: links removed, -- to em dash,
-... to ellipsis, straight quotes curled. Entry text is otherwise as
-Movable Type published it.
+Per-entry changes: typography.py (links removed, -- to em dash, ... to
+ellipsis, straight quotes curled) and corrections.tsv (spelling and
+grammar). Entry text is otherwise as Movable Type published it.
 
 2005-05-13 according_to_pl (mt_id 3, _posts)
     1 straight quotes curled
@@ -10,6 +10,7 @@ Movable Type published it.
 
 2005-05-13 drunken_pub_cra (mt_id 6, _posts)
     1 straight quotes curled
+    corrected (grammar): 'after a stay, it become important' -> 'after a stay, it becomes important'
 
 2005-05-13 crawling_forwar (mt_id 7, _posts)
     3 straight quotes curled
@@ -26,6 +27,12 @@ Movable Type published it.
 
 2005-05-13 washington_summ (mt_id 10, _posts)
     1 straight quotes curled
+    corrected (spelling): 'their tresured gear' -> 'their treasured gear'
+    corrected (spelling; the→they): 'was confescated and the were' -> 'was confiscated and they were'
+    corrected (spelling): 'sent to Gotmo' -> 'sent to Gitmo'
+
+2005-05-13 we_have_outsour (mt_id 18, _posts)
+    corrected (grammar): 'does not required awareness' -> 'does not require awareness'
 
 2005-05-13 bee_hives_and_a (mt_id 19, _posts)
     1 straight quotes curled
@@ -35,16 +42,22 @@ Movable Type published it.
 
 2005-05-13 washington_was (mt_id 21, _posts)
     5 straight quotes curled
+    corrected (the the→to the): 'responding the the environment' -> 'responding to the environment'
 
 2005-05-13 all_bezel_and_l (mt_id 24, _posts)
     1 straight quotes curled
 
 2005-05-13 i_was_a_haole (mt_id 27, _posts)
     1 straight quotes curled
+    corrected (doubled article): 'support from a an assortment' -> 'support from an assortment'
+    corrected (worse→worst): 'some of the worse in many' -> 'some of the worst in many'
 
 2005-05-13 class_as_on_thu (mt_id 29, _posts)
     title: "Class A's on Thursdays" -> 'Class A’s on Thursdays'
     2 straight quotes curled
+
+2005-05-13 a_code_of_silen (mt_id 33, _posts)
+    corrected (agreement): 'These defilement were legendary' -> 'These defilements were legendary'
 
 2005-05-13 us_cadets (mt_id 34, _posts)
     1 straight quotes curled
@@ -62,6 +75,7 @@ Movable Type published it.
 
 2005-05-13 situational_and (mt_id 40, _posts)
     2 straight quotes curled
+    corrected (spelling (brand)): 'a Yeungling or even' -> 'a Yuengling or even'
 
 2005-05-13 ceding_my_food (mt_id 42, _posts)
     1 straight quotes curled
@@ -75,9 +89,12 @@ Movable Type published it.
 
 2005-05-13 city_rules_of_e (mt_id 45, _posts)
     7 straight quotes curled
+    corrected (spelling): 'caught the elleged tail' -> 'caught the alleged tail'
+    corrected (its→it’s): 'a traveler and its well after midnight' -> 'a traveler and it’s well after midnight'
 
 2005-05-13 fire_can_lick_b (mt_id 46, _posts)
     2 straight quotes curled
+    corrected (its→it’s): 'even though its been about' -> 'even though it’s been about'
 
 2005-05-13 photographers_a (mt_id 47, _posts)
     1 straight quotes curled
@@ -85,6 +102,7 @@ Movable Type published it.
 2005-05-13 emersonians_inv (mt_id 48, _posts)
     title: "Emerson's Invisible Eye" -> 'Emerson’s Invisible Eye'
     3 straight quotes curled
+    corrected (spelling): 'natural occurances of' -> 'natural occurrences of'
 
 2005-05-13 some_really_fuc (mt_id 49, _posts)
     2 straight quotes curled
@@ -114,6 +132,8 @@ Movable Type published it.
 
 2005-05-13 fancying_myself (mt_id 58, _posts)
     3 straight quotes curled
+    corrected (spelling): 'Such beaurocrats' -> 'Such bureaucrats'
+    corrected (spelling): 'created and adheared to' -> 'created and adhered to'
 
 2005-05-13 myself_my_new_w (mt_id 59, _posts)
     3 straight quotes curled
@@ -157,6 +177,7 @@ Movable Type published it.
 
 2005-05-13 id_and_passport (mt_id 76, _posts)
     3 straight quotes curled
+    corrected (to→too): 'been to confusing to meet' -> 'been too confusing to meet'
 
 2005-05-13 false_name (mt_id 77, _posts)
     2 straight quotes curled
@@ -192,6 +213,7 @@ Movable Type published it.
 
 2005-05-18 taking_evasive (mt_id 90, _posts)
     3 straight quotes curled
+    corrected (breech→breach): 'if you breech my perimeter' -> 'if you breach my perimeter'
 
 2005-05-19 the_painter (mt_id 92, _posts)
     2 × -- → —
@@ -233,9 +255,11 @@ Movable Type published it.
 2005-07-05 cap_hill_camo (mt_id 109, _posts)
     4 × -- → —
     464 straight quotes curled
+    corrected (spelling): 'and suprisingly bright' -> 'and surprisingly bright'
 
 2005-07-05 all_this_stuff (mt_id 110, _posts)
     1 straight quotes curled
+    corrected (spelling): 'It has occured to me' -> 'It has occurred to me'
 
 2005-07-22 dont_i_know_you (mt_id 111, _posts)
     title: "Don't I Know You?" -> 'Don’t I Know You?'
@@ -254,17 +278,23 @@ Movable Type published it.
 
 2005-07-27 pyrite (mt_id 115, _posts)
     3 straight quotes curled
+    corrected (spelling): 'offers restoritive powers' -> 'offers restorative powers'
+    corrected (chose→choose): 'Indy has to chose the true cup' -> 'Indy has to choose the true cup'
 
 2005-07-27 doctors_have_be (mt_id 116, _posts)
     4 × -- → —
     1 × ... → …
     1002 straight quotes curled
+    corrected (spelling): 'any semblence of' -> 'any semblance of'
+    corrected (apostrophe): 'Whats more, docs' -> 'What’s more, docs'
 
 2005-08-02 infinite_loop_a (mt_id 117, _posts)
     11 straight quotes curled
+    corrected (its→it’s): 'There’s nothing there there.  Its your mind' -> 'There’s nothing there there.  It’s your mind'
 
 2005-08-02 breathing_into (mt_id 118, _posts)
     5 straight quotes curled
+    corrected (its→it’s): '“Its a panic attack,”' -> '“It’s a panic attack,”'
 
 2005-08-02 wet_pillow (mt_id 119, _posts)
     2 × -- → —
@@ -276,6 +306,7 @@ Movable Type published it.
 2005-08-05 a_cigar_is_neve (mt_id 121, _posts)
     1 × ... → …
     5 straight quotes curled
+    corrected (spelling): 'someone prefeces their' -> 'someone prefaces their'
 
 2005-08-05 charm_is_never (mt_id 122, _posts)
     1 × -- → —
@@ -283,10 +314,13 @@ Movable Type published it.
 
 2005-08-05 struggle_or_pla (mt_id 123, _posts)
     2 straight quotes curled
+    corrected (spelling): 'not to stuggle after' -> 'not to struggle after'
 
 2005-08-06 the_wives_i_fuc (mt_id 124, _posts)
     6 × -- → —
     211 straight quotes curled
+    corrected (spelling): 'obligation and responsibily pins' -> 'obligation and responsibility pins'
+    corrected (theirs): 'and not their’s.' -> 'and not theirs.'
 
 2005-08-06 star-nosed_mole (mt_id 125, _posts)
     5 straight quotes curled
@@ -296,13 +330,19 @@ Movable Type published it.
 
 2005-08-09 mata_hari (mt_id 127, _posts)
     6 straight quotes curled
+    corrected (spelling): 'Latinas, and Carribean Islanders' -> 'Latinas, and Caribbean Islanders'
 
 2005-08-09 open_season_on (mt_id 128, _posts)
     5 × -- → —
     1083 straight quotes curled
+    corrected (your→you’re): 'play it out as your being human' -> 'play it out as you’re being human'
 
 2005-08-15 little_kids_in (mt_id 130, _posts)
     3 straight quotes curled
+    corrected (spelling): 'potentially undermind national' -> 'potentially undermine national'
+
+2005-08-17 secrets_are_kep (mt_id 131, _posts)
+    corrected (spelling): 'our consciounce always' -> 'our conscience always'
 
 2005-11-21 the_best_spy_is (mt_id 133, _posts)
     1 × -- → —
@@ -313,14 +353,19 @@ Movable Type published it.
 
 2005-12-20 good_things_com (mt_id 135, _posts)
     7 straight quotes curled
+    corrected (its→it’s): 'If its not your plan' -> 'If it’s not your plan'
 
 2005-12-28 making_sausage (mt_id 136, _posts)
     2 × -- → —
     215 straight quotes curled
+    corrected (spelling): 'issue of domestistic surveillance' -> 'issue of domestic surveillance'
 
 2005-12-31 constant_peace (mt_id 137, _posts)
     1 × -- → —
     18 straight quotes curled
+    corrected (spelling): 'official seeths with' -> 'official seethes with'
+    corrected (its→it’s): 'insecurity. Its why a wife' -> 'insecurity. It’s why a wife'
+    corrected (its→it’s): 'these days, its usually over' -> 'these days, it’s usually over'
 
 2006-11-23 it_takes_two_to (mt_id 140, _posts)
     4 straight quotes curled
@@ -348,6 +393,9 @@ Movable Type published it.
     4 × -- → —
     1 × ... → …
     319 straight quotes curled
+    corrected (spelling): 'and respoding to online' -> 'and responding to online'
+    corrected (spelling): 'can ring of inrigue' -> 'can ring of intrigue'
+    corrected (grammar): 'my work does sounds intriguing' -> 'my work does sound intriguing'
 
 2008-12-14 how_well_do_you (mt_id 150, _posts)
     1 × -- → —
@@ -356,6 +404,7 @@ Movable Type published it.
 2008-12-21 making_a_spy_in (mt_id 151, _posts)
     4 × -- → —
     498 straight quotes curled
+    corrected (spelling): 'immigrant, expatriot, and tourist' -> 'immigrant, expatriate, and tourist'
 
 2009-05-24 spies_are_every_1 (mt_id 152, _posts)
     removed Zemanta reblog widget (no text)
@@ -386,6 +435,7 @@ Movable Type published it.
     unlinked: 'heart attack'
     2 × -- → —
     172 straight quotes curled
+    corrected (its→it’s): 'a few times a week, its just good fun' -> 'a few times a week, it’s just good fun'
 
 2010-12-16 hapless_fools_a (mt_id 154, _posts)
     2 × -- → —
@@ -413,6 +463,7 @@ Movable Type published it.
 
 2019-06-03 loneliness_kill (mt_id 166, _posts)
     10 straight quotes curled
+    corrected (too→to): 'alone, too feel safer' -> 'alone, to feel safer'
 
 2019-06-12 i_dont_know_if (mt_id 167, _posts)
     title: "I don't know if sharpshooting has anything to do with the eyes" -> 'I don’t know if sharpshooting has anything to do with the eyes'
@@ -423,6 +474,8 @@ Movable Type published it.
 
 2019-06-17 little_grey_men (mt_id 169, _posts)
     31 straight quotes curled
+    corrected (your→you’re): 'all of a sudden, your a weak' -> 'all of a sudden, you’re a weak'
+    corrected (doubled word): 'And there are are some' -> 'And there are some'
 
 2020-06-10 its_all_fancy_d (mt_id 174, _posts)
     title: "It's all fancy dress" -> 'It’s all fancy dress'
@@ -479,6 +532,8 @@ Movable Type published it.
 
 2020-09-05 when_people_use (mt_id 190, _posts)
     3 straight quotes curled
+    corrected (spelling): 'it’s a bonafide, logical' -> 'it’s a bona fide, logical'
+    corrected (spelling): 'Ambrosias to Winsaps' -> 'Ambrosias to Winesaps'
 
 2020-09-05 so_dont_be_afra (mt_id 191, _posts)
     title: "So don't be afraid to let them show your true colors" -> 'So don’t be afraid to let them show your true colors'
@@ -487,6 +542,7 @@ Movable Type published it.
 2020-09-05 godwins_rule_of (mt_id 192, _posts)
     title: "Godwin's rule of Trump analogies" -> 'Godwin’s rule of Trump analogies'
     18 straight quotes curled
+    corrected (spelling): 'become the defacto version' -> 'become the de facto version'
 
 2020-09-05 i_am_an_oddball (mt_id 193, _posts)
     7 straight quotes curled
@@ -499,6 +555,10 @@ Movable Type published it.
 
 2020-09-08 trump_is_a_terr (mt_id 196, _posts)
     24 straight quotes curled
+    corrected (spelling): 'really hate hypocricy' -> 'really hate hypocrisy'
+    corrected (spelling): 'without cessassion' -> 'without cessation'
+    corrected (spelling): 'arms of Innoquous Hitler' -> 'arms of Innocuous Hitler'
+    corrected (grammar): 'he doesn’t believed in anything' -> 'he doesn’t believe in anything'
 
 2020-09-09 manufacture_of (mt_id 198, _posts)
     unlinked: 'Oxford Reference'
@@ -513,6 +573,7 @@ Movable Type published it.
 
 2020-09-29 conspiracy_theo (mt_id 202, _posts)
     1 straight quotes curled
+    corrected (he→the): 'when in he middle of City Center' -> 'when in the middle of City Center'
 
 2021-01-22 trumps_atrociti (mt_id 204, _posts)
     title: "Trump's Atrocities Were Never Actualities" -> 'Trump’s Atrocities Were Never Actualities'
@@ -563,6 +624,7 @@ Movable Type published it.
     title: "Can you dismantle the master's home with reparations" -> 'Can you dismantle the master’s home with reparations'
     1 × ... → …
     11 straight quotes curled
+    corrected (worse→worst): 'be the worse kind of paternalism' -> 'be the worst kind of paternalism'
 
 2021-04-12 should_america (mt_id 222, _posts)
     1 × ... → …
@@ -578,6 +640,7 @@ Movable Type published it.
 2021-04-20 going_to_war_to (mt_id 225, _posts)
     1 × ... → …
     2 straight quotes curled
+    corrected (spelling): 'suffer, moreso when' -> 'suffer, more so when'
 
 2021-05-13 ceci_nest_pas_u (mt_id 226, _posts)
     title: "Ceci n'est pas une pipe" -> 'Ceci n’est pas une pipe'
@@ -622,6 +685,7 @@ Movable Type published it.
 
 2021-07-09 folks_know_that (mt_id 240, _posts)
     7 straight quotes curled
+    corrected (it→of): 'Any mention it defunding police' -> 'Any mention of defunding police'
 
 2021-08-10 aegrescit_meden (mt_id 242, _posts)
     5 straight quotes curled
@@ -641,6 +705,9 @@ Movable Type published it.
 
 2021-08-14 nazis_and_wokie (mt_id 247, _posts)
     13 straight quotes curled
+    corrected (spelling): 'This strick concept' -> 'This strict concept'
+    corrected (chose→choose): 'YOU get to chose.' -> 'YOU get to choose.'
+    corrected (passes→passed): 'The Laws passes after 9/11' -> 'The Laws passed after 9/11'
 
 2021-08-15 deja_afghanista (mt_id 248, _posts)
     4 straight quotes curled
@@ -650,6 +717,9 @@ Movable Type published it.
 
 2021-08-15 train_thy_enemy (mt_id 250, _posts)
     2 straight quotes curled
+
+2021-08-15 npr_warhawks (mt_id 251, _posts)
+    corrected (spelling): 'Warkawks for days' -> 'Warhawks for days'
 
 2021-08-16 darkness_will_e (mt_id 252, _posts)
     1 straight quotes curled
@@ -673,6 +743,7 @@ Movable Type published it.
 
 2021-09-01 donald_trump_wa (mt_id 259, _posts)
     2 straight quotes curled
+    corrected (spelling): 'no crucifications' -> 'no crucifixions'
 
 2021-09-06 did_america_com (mt_id 261, _posts)
     1 straight quotes curled
@@ -688,7 +759,10 @@ Movable Type published it.
     3 straight quotes curled
 
 2021-09-10 auahoritarianis (mt_id 265, _posts)
+    title: 'auAhoritarianism for public safety is still authoritarianism' -> 'Authoritarianism for public safety is still authoritarianism'
     6 straight quotes curled
+    corrected (typo): 'WThought experiment:' -> 'Thought experiment:'
+    corrected (typo in title): 'auAhoritarianism for public safety' -> 'Authoritarianism for public safety'
 
 2021-09-15 nobody_cares_ab (mt_id 266, _posts)
     1 straight quotes curled
@@ -696,6 +770,7 @@ Movable Type published it.
 2021-09-18 when_nazi_is_no (mt_id 267, _posts)
     title: 'When "Nazi!" is no longer a kill shot' -> 'When “Nazi!” is no longer a kill shot'
     11 straight quotes curled
+    corrected (spelling): '“purebood”' -> '“pureblood”'
 
 2021-09-19 nowhere_to_run (mt_id 268, _posts)
     1 straight quotes curled
@@ -785,6 +860,7 @@ Movable Type published it.
 
 2022-01-30 spotify_451 (mt_id 297, _posts)
     20 straight quotes curled
+    corrected (spelling): 'classic distopian schtick' -> 'classic dystopian schtick'
 
 2022-02-01 covid_modalitie (mt_id 299, _posts)
     3 straight quotes curled
@@ -801,7 +877,9 @@ Movable Type published it.
     13 straight quotes curled
 
 2022-02-19 tthe_slave_woul (mt_id 304, _posts)
+    title: 'Tthe slave would rise in rebellion' -> 'The slave would rise in rebellion'
     2 straight quotes curled
+    corrected (typo in title): 'Tthe slave would rise in rebellion' -> 'The slave would rise in rebellion'
 
 2022-02-22 these_are_the_b (mt_id 306, _posts)
     1 straight quotes curled
@@ -825,6 +903,7 @@ Movable Type published it.
 2022-05-03 free_speech_isn (mt_id 312, _posts)
     title: "Free speech isn't equitable speech" -> 'Free speech isn’t equitable speech'
     6 straight quotes curled
+    corrected (who’s→whose): 'who gets to choose who’s voice is worthy of amplifying and who’s voice is worth' -> 'who gets to choose whose voice is worthy of amplifying and whose voice is worth'
 
 2022-05-05 decriminalize_c (mt_id 313, _posts)
     4 straight quotes curled
