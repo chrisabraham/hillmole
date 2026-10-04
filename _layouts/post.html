@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<nav class="entry-nav" aria-label="Entries">
+  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}" rel="prev">&laquo; {{ page.previous.title }}</a> |{% endif %}
+  <a href="{{ '/' | relative_url }}">Main</a>
+  {% if page.next %}| <a href="{{ page.next.url | relative_url }}" rel="next">{{ page.next.title }} &raquo;</a>{% endif %}
+</nav>
+
+<article class="entry">
+  <h3><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h3>
+  <p class="date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+  <div class="entry-body">
+{{ content }}
+  </div>
+</article>
+
+<nav class="entry-nav" aria-label="Entries">
+  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}" rel="prev">&laquo; Previous</a> |{% endif %}
+  <a href="{{ site.posts.last.url | relative_url }}">Beginning</a>
+  {% if page.next %}| <a href="{{ page.next.url | relative_url }}" rel="next">Next &raquo;</a>{% endif %}
+</nav>

@@ -1,0 +1,18 @@
+<aside class="sidebar">
+  <form class="search" method="get" action="https://www.google.com/search" role="search">
+    <input type="hidden" name="sitesearch" value="hillmole.com">
+    <label for="search" class="visually-hidden">Search Hill Mole</label>
+    <input id="search" name="q" type="search" placeholder="Search">
+  </form>
+  <p class="feeds">
+    <a href="{{ '/index.rdf' | relative_url }}">RSS</a>
+    <a href="{{ '/index.xml' | relative_url }}">RSS2</a>
+    <a href="{{ '/atom.xml' | relative_url }}">ATOM</a>
+  </p>
+  <p>Start at the very <a href="{{ site.posts.last.url | relative_url }}">beginning</a><br>a very good place to start.</p>
+  <p>The creature in the banner is a <a href="{{ '/archives/2005/08/star-nosed_mole.html' | relative_url }}">star-nosed mole</a>.</p>
+  <p><a href="{{ '/archives.html' | relative_url }}">Every entry</a></p>
+  <p class="badge">
+    <a href="{{ '/podcast/index.xml' | relative_url }}"><img src="{{ '/hillMoleiTunes.gif' | relative_url }}" alt="Hill Mole podcast" width="160" height="160"></a>
+  </p>
+</aside>

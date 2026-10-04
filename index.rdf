@@ -1,0 +1,36 @@
+---
+layout: null
+permalink: /index.rdf
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
+xmlns="http://purl.org/rss/1.0/">
+
+<channel rdf:about="{{ '/' | absolute_url }}">
+<title>{{ site.title | xml_escape }}</title>
+<link>{{ '/' | absolute_url }}</link>
+<description>{{ site.description | xml_escape }}</description>
+<dc:language>en</dc:language>
+<dc:creator>{{ site.author | xml_escape }}</dc:creator>
+<dc:date>{{ site.posts.first.date | date_to_xmlschema }}</dc:date>
+<items>
+<rdf:Seq>{% for post in site.posts limit:15 %}
+<rdf:li rdf:resource="{{ post.url | absolute_url }}" />{% endfor %}
+</rdf:Seq>
+</items>
+</channel>
+{% for post in site.posts limit:15 %}
+<item rdf:about="{{ post.url | absolute_url }}">
+<title>{{ post.title | xml_escape }}</title>
+<link>{{ post.url | absolute_url }}</link>
+<description>{{ post.description | default: post.content | strip_html | truncatewords: 40 | xml_escape }}</description>
+<content:encoded>{{ post.content | xml_escape }}</content:encoded>
+{% for c in post.categories %}<dc:subject>{{ c | xml_escape }}</dc:subject>
+{% endfor %}<dc:creator>{{ site.author | xml_escape }}</dc:creator>
+<dc:date>{{ post.date | date_to_xmlschema }}</dc:date>
+</item>
+{% endfor %}
+</rdf:RDF>
