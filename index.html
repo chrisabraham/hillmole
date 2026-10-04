@@ -1,8 +1,10 @@
 ---
 layout: default
 ---
-{%- assign post = site.posts.first -%}
+{%- assign post = site.posts.last -%}{%- assign latest = site.posts.first -%}
 <h1 class="visually-hidden">Hill Mole: {{ site.title_tagline }}</h1>
+
+<p class="latest">Latest: <a href="{{ latest.url | relative_url }}">{{ latest.title }}</a>, {{ latest.date | date: "%B %-d, %Y" }}</p>
 
 <article class="entry">
   <h2{% include entry-id.html post=post %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
@@ -14,4 +16,4 @@ layout: default
 
 {% include end-nav.html post=post %}
 
-<p class="intro">{{ site.description }} Start at the very <a href="{{ site.posts.last.url | relative_url }}">beginning</a>, or read the latest above.</p>
+<p class="intro">{{ site.description }} This is where it begins; each entry links to the next.</p>

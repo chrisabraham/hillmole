@@ -31,7 +31,7 @@
 {%- when "home" -%}{%- assign raw_desc = site.description -%}
 {%- when "archives" -%}{%- assign raw_desc = site.description -%}
 {%- when "monthly", "category" -%}
-{%- capture raw_desc -%}Hill Mole entries {% if kind == "category" %}about {{ page.title }}{% else %}from {{ page.title }}{% endif %}: {% for post in site.posts -%}
+{%- capture raw_desc -%}Hill Mole entries {% if kind == "category" %}about {{ page.title }}{% else %}from {{ page.title }}{% endif %}: {% assign chron = site.posts | reverse %}{% for post in chron -%}
 {%- if kind == "category" -%}{%- unless post.categories contains page.category -%}{%- continue -%}{%- endunless -%}
 {%- else -%}{%- assign d = post.date | date: "%Y-%m-%d" -%}{%- if d < page.from or d > page.to -%}{%- continue -%}{%- endif -%}{%- endif -%}
 {{ post.title }}; {% endfor %}{%- endcapture -%}

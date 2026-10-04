@@ -68,3 +68,41 @@ mt_id	field	find	replace	note
 297	text	classic distopian schtick	classic dystopian schtick	spelling
 304	title	Tthe slave would rise in rebellion	The slave would rise in rebellion	typo in title
 312	text	who gets to choose who’s voice is worthy of amplifying and who’s voice is worth	who gets to choose whose voice is worthy of amplifying and whose voice is worth	who’s→whose
+4	text	The majority of miltel funds	The majority of military funds	spelling
+150	text	Invisibility is the easiest the but still	Invisibility is the easiest, but still	stray word
+150	text	This is so assure we will neither miss spotting prey or predator.	This is to assure we will neither miss spotting prey nor predator.	so→to; neither…nor
+61	text	trying to to no avail	trying to, to no avail	missing comma
+33	text	The Rangers was a secret society	The Rangers were a secret society	agreement
+97	text	the typical tourists is better provisioned	the typical tourist is better provisioned	agreement
+154	text	most expensive three letter you’ve	most expensive three letters you’ve	agreement
+246	text	they can only fetish their cities	they can only fetishize their cities	fetish→fetishize
+246	text	They fetish their	They fetishize their	fetish→fetishize
+151	text	is neither amusing or rewarding	is neither amusing nor rewarding	neither…nor
+130	text	so inbibed with spycraft	so imbued with spycraft	spelling
+201	text	the moment noone’s watching	the moment no one’s watching	no one
+217	text	possible if noone cares	possible if no one cares	no one
+226	text	basically a unruly tour	basically an unruly tour	a→an
+241	text	at right the perfect time to realise	right at the perfect time to realize	word order; realize
+202	text	committed to realising a so-called	committed to realizing a so-called	realize (American spelling)
+246	text	contrite over Naziism	contrite over Nazism	spelling
+239	text	council of Nicea	council of Nicaea	spelling
+113	text	were the <em>bubushkas</em>	were the <em>babushkas</em>	spelling
+226	text	those kookie old Republicans	those kooky old Republicans	spelling
+164	text	anticommunism witchhunt	anticommunism witch hunt	spelling
+142	text	assume that pillowtalk and	assume that pillow talk and	spelling
+281	text	a dangerous blindspot	a dangerous blind spot	spelling
+284	text	novels, and videogames	novels, and video games	spelling
+125	text	velvet-like furcoat	velvet-like fur coat	spelling
+249	text	Afghanistan in kneejerk response	Afghanistan in knee-jerk response	spelling
+237	text	Ever seen their stircrazy?	Ever seen their stir-crazy?	spelling
+319	text	Plus, law suits end up	Plus, lawsuits end up	spelling
+300	text	might tell the truth. Base line.	might tell the truth. Baseline.	spelling
+319	text	I was driving cross country and	I was driving cross-country and	spelling
+247	text	in here as a de-facto cliche	in here as a de facto cliche	spelling
+194	text	and the B52s are ridden	and the B-52s are ridden	spelling
+157	text	a pile of the m80s of legend	a pile of the M-80s of legend	spelling
+227	text	approach a panicked Scubadiver face-on	approach a panicked scuba diver face-on	spelling
+187	text	going through Bootcamp or	going through boot camp or	spelling
+96	text	a fit longhaired backpacking	a fit long-haired backpacking	spelling
+77	text	but I couldn’t, “M told me once.	but I couldn’t,” M told me once.	closing quote
+220	text	"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/T_x6QmuJdms"" frameborder=""0"" allow=""accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>"	"<iframe class=""video"" src=""https://www.youtube-nocookie.com/embed/T_x6QmuJdms"" title=""Shaggy, It Wasn't Me (official music video)"" loading=""lazy"" allow=""accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"" referrerpolicy=""strict-origin-when-cross-origin"" allowfullscreen></iframe>"	same video, modern responsive embed

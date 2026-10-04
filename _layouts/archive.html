@@ -10,7 +10,7 @@ layout: default
 <h1 class="archive-title">{{ page.title }}</h1>
 
 {% assign shown = 0 %}
-{% for post in site.posts %}
+{% assign chron = site.posts | reverse %}{% for post in chron %}
   {% if page.archive_type == "category" %}
     {% unless post.categories contains page.category %}{% continue %}{% endunless %}
   {% else %}
