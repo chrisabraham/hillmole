@@ -43,7 +43,7 @@ print(f"Checking {BASE}")
 
 # 1. Every old URL still answers.
 paths = [p for p in open(f"{HERE}/old-urls.txt").read().split() if p]
-with cf.ThreadPoolExecutor(16) as ex:
+with cf.ThreadPoolExecutor(6) as ex:
     results = list(ex.map(lambda p: (p, get(BASE + p, "HEAD")[0]), paths))
 missing = [p for p, s in results if s != 200]
 print(f"old URLs: {len(paths) - len(missing)}/{len(paths)} answer 200")
@@ -75,7 +75,7 @@ def page_check(u):
     return errs
 
 
-with cf.ThreadPoolExecutor(16) as ex:
+with cf.ThreadPoolExecutor(6) as ex:
     for errs in ex.map(page_check, locs):
         for e in errs:
             bad(e)
