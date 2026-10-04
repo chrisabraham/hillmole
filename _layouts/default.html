@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>try{if(localStorage.getItem("hillmole-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<script>(function(){var t=null;try{t=localStorage.getItem("hillmole-theme")}catch(e){}if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")})();</script>
 {% include seo.html %}
 <meta name="theme-color" content="#cccccc" id="theme-color">
 <link rel="icon" type="image/png" href="{{ '/podcast/hillMole.png' | relative_url }}">

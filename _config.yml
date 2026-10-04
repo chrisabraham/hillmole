@@ -1,13 +1,25 @@
 title: Hill Mole
 tagline: Life is But a Dream
-# Placeholder of plain facts until Chris writes the one-sentence description.
+# How the site describes Hill Mole. Every page, feed, schema node and
+# llms.txt reads these; nothing else hardcodes a description. The values
+# below are plain facts standing in until Chris writes his own.
+#
+# [[CHRIS WRITES: one-sentence description of Hill Mole]] -> replace `description`
 description: >-
   Hill Mole is a serialized novel by Chris Abraham, written at hillmole.com
   from 2005 to 2022.
+# [[CHRIS WRITES: short title-tag tagline]] -> replace `title_tagline`
+# (home page <title> is "Hill Mole: <title_tagline>"; keep it to 49 characters)
+title_tagline: a serialized novel by Chris Abraham
+# [[CHRIS WRITES: genre]] -> uncomment and fill in (Book schema)
+# genre: ""
+# [[CHRIS WRITES: author bio]] -> uncomment and fill in (Person schema, About page)
+# author_bio: ""
 author: Chris Abraham
 lang: en
 first_published: 2005-05-13
-image: /podcast/hillMole.png
+image: /podcast/hillMole.png        # square art: favicon, podcast, schema
+social_card: /assets/hillmole-card.jpg  # 1200x630 link preview, made from the banner
 
 # The Kindle edition (from the Amazon listing, October 2026).
 kindle:

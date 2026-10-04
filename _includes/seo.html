@@ -10,7 +10,7 @@
 
 {%- comment -%} ---- title ---- {%- endcomment -%}
 {%- case kind -%}
-{%- when "home" -%}{%- assign raw_title = "Hill Mole: a serialized novel by Chris Abraham" -%}
+{%- when "home" -%}{%- assign raw_title = "Hill Mole: " | append: site.title_tagline -%}
 {%- when "archives" -%}{%- capture raw_title -%}All {{ site.posts.size }} entries, 2005–{{ site.posts.first.date | date: "%Y" }} | Hill Mole{%- endcapture -%}
 {%- when "post" -%}
 {%- assign base = page.title -%}
@@ -27,9 +27,9 @@
 
 {%- comment -%} ---- description ---- {%- endcomment -%}
 {%- case kind -%}
-{%- when "post" -%}{%- assign raw_desc = page.description | default: page.content -%}
+{%- when "post" -%}{%- assign raw_desc = page.content -%}{%- comment -%} the entry's own opening words, cut by fit.html {%- endcomment -%}
 {%- when "home" -%}{%- assign raw_desc = site.description -%}
-{%- when "archives" -%}{%- assign raw_desc = "Every entry of Hill Mole, Chris Abraham's serialized novel, from the first in May 2005 to the latest, newest first, with dates." -%}
+{%- when "archives" -%}{%- assign raw_desc = site.description -%}
 {%- when "monthly", "category" -%}
 {%- capture raw_desc -%}Hill Mole entries {% if kind == "category" %}about {{ page.title }}{% else %}from {{ page.title }}{% endif %}: {% for post in site.posts -%}
 {%- if kind == "category" -%}{%- unless post.categories contains page.category -%}{%- continue -%}{%- endunless -%}
@@ -57,9 +57,9 @@
 <meta property="og:title" content="{{ seo_title | escape }}">
 <meta property="og:description" content="{{ seo_desc | escape }}">
 <meta property="og:url" content="{{ canonical }}">
-<meta property="og:image" content="{{ img }}">
-<meta property="og:image:width" content="300">
-<meta property="og:image:height" content="300">
+<meta property="og:image" content="{{ site.social_card | absolute_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Hill Mole: a star-nosed mole's pink tentacled snout">
 {%- if is_post %}
 <meta property="og:type" content="article">
@@ -71,13 +71,13 @@
 {%- else %}
 <meta property="og:type" content="website">
 {%- endif %}
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ seo_title | escape }}">
 <meta name="twitter:description" content="{{ seo_desc | escape }}">
-<meta name="twitter:image" content="{{ img }}">
+<meta name="twitter:image" content="{{ site.social_card | absolute_url }}">
 
 {%- comment -%} ---- JSON-LD ---- {%- endcomment -%}
-{%- capture person -%}{"@type":"Person","@id":{{ site_root | append: "#author" | jsonify }},"name":{{ site.author | jsonify }},"url":{{ '/about.html' | absolute_url | jsonify }}{% if site.author_bio %},"description":{{ site.author_bio | jsonify }}{% endif %}{% if site.kindle.publisher %},"worksFor":{"@type":"Organization","name":{{ site.kindle.publisher | jsonify }}}{% endif %}{% if site.author_same_as.size > 0 %},"sameAs":{{ site.author_same_as | jsonify }}{% endif %}}{%- endcapture -%}
+{%- capture person -%}{"@type":"Person","@id":{{ site_root | append: "#author" | jsonify }},"name":{{ site.author | jsonify }},"url":{{ '/about.html' | absolute_url | jsonify }}{% if site.author_bio %},"description":{{ site.author_bio | jsonify }}{% endif %}{% if site.author_same_as.size > 0 %},"sameAs":{{ site.author_same_as | jsonify }}{% endif %}}{%- endcapture -%}
 {%- capture website -%}{"@type":"WebSite","@id":{{ site_root | append: "#website" | jsonify }},"url":{{ site_root | jsonify }},"name":{{ site.title | jsonify }},"alternateName":{{ site.tagline | jsonify }},"description":{{ site.description | jsonify }},"inLanguage":"en","publisher":{"@id":{{ site_root | append: "#author" | jsonify }}}}{%- endcapture -%}
 {%- capture book -%}{"@type":"Book","@id":{{ site_root | append: "#novel" | jsonify }},"name":{{ site.title | jsonify }},"url":{{ site_root | jsonify }},"author":{"@id":{{ site_root | append: "#author" | jsonify }}}{% if site.genre %},"genre":{{ site.genre | jsonify }}{% endif %},"bookFormat":"https://schema.org/EBook","inLanguage":"en","image":{{ img | jsonify }},"description":{{ site.description | jsonify }},"datePublished":{{ site.first_published | date: "%Y-%m-%d" | jsonify }},"dateModified":{{ site.posts.first.date | date_to_xmlschema | jsonify }},"isAccessibleForFree":true{% if site.kindle.asin %},"workExample":{"@type":"Book","@id":{{ site_root | append: "#kindle" | jsonify }},"name":{% if site.kindle.subtitle != "" %}{{ site.title | append: ": " | append: site.kindle.subtitle | jsonify }}{% else %}{{ site.title | jsonify }}{% endif %},"bookFormat":"https://schema.org/EBook","author":{"@id":{{ site_root | append: "#author" | jsonify }}},"url":{{ site.kindle.url | jsonify }},"identifier":{"@type":"PropertyValue","propertyID":"ASIN","value":{{ site.kindle.asin | jsonify }}},"inLanguage":"en"{% if site.kindle.publisher %},"publisher":{"@type":"Organization","name":{{ site.kindle.publisher | jsonify }}}{% endif %}{% if site.kindle.pages %},"numberOfPages":{{ site.kindle.pages }}{% endif %}{% if site.kindle.edition %},"bookEdition":{{ site.kindle.edition | jsonify }}{% endif %}{% if site.kindle.date_published != "" %},"datePublished":{{ site.kindle.date_published | jsonify }}{% endif %}}{% endif %}}{%- endcapture -%}
 <script type="application/ld+json">
@@ -90,14 +90,14 @@
 ,{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hill Mole","item":{{ site_root | jsonify }}},{"@type":"ListItem","position":2,"name":"Archives","item":{{ '/archives.html' | absolute_url | jsonify }}},{"@type":"ListItem","position":3,"name":{{ page.title | jsonify }},"item":{{ canonical | jsonify }}}]}
 {%- when "home" -%}
 ,{"@type":"WebPage","@id":{{ site_root | jsonify }},"url":{{ site_root | jsonify }},"name":{{ seo_title | jsonify }},"description":{{ seo_desc | jsonify }},"isPartOf":{"@id":{{ site_root | append: "#website" | jsonify }}},"about":{"@id":{{ site_root | append: "#novel" | jsonify }}},"mainEntity":{"@id":{{ site_root | append: "#novel" | jsonify }}},"inLanguage":"en"}
-,{"@type":"PodcastSeries","@id":{{ site_root | append: "#podcast" | jsonify }},"name":"Hill Mole","description":"Hill Mole audio book podcast: chapters read by the author.","url":{{ site_root | jsonify }},"webFeed":{{ '/podcast/index.xml' | absolute_url | jsonify }},"author":{"@id":{{ site_root | append: "#author" | jsonify }}},"image":{{ img | jsonify }},"about":{"@id":{{ site_root | append: "#novel" | jsonify }}}}
+,{"@type":"PodcastSeries","@id":{{ site_root | append: "#podcast" | jsonify }},"name":"Hill Mole","description":"Hill Mole Audio Book Podcast","url":{{ site_root | jsonify }},"webFeed":{{ '/podcast/index.xml' | absolute_url | jsonify }},"author":{"@id":{{ site_root | append: "#author" | jsonify }}},"image":{{ img | jsonify }},"about":{"@id":{{ site_root | append: "#novel" | jsonify }}}}
 {%- else -%}
 ,{"@type":{{ page.jsonld_type | default: "CollectionPage" | jsonify }},"@id":{{ canonical | jsonify }},"url":{{ canonical | jsonify }},"name":{{ seo_title | jsonify }},"description":{{ seo_desc | jsonify }},"isPartOf":{"@id":{{ site_root | append: "#website" | jsonify }}},"about":{"@id":{{ site_root | append: "#novel" | jsonify }}},"inLanguage":"en"}
 ,{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hill Mole","item":{{ site_root | jsonify }}},{"@type":"ListItem","position":2,"name":{{ page.title | default: "Archives" | jsonify }},"item":{{ canonical | jsonify }}}]}
 {%- endcase -%}
 {%- if page.faq -%}
 {%- capture latest_date -%}{{ site.posts.first.date | date: "%B %-d, %Y" }}{%- endcapture -%}
-,{"@type":"FAQPage","@id":{{ canonical | append: "#faq" | jsonify }},"mainEntity":[{%- for item in page.faq -%}{%- assign ans = item.a | replace: "%LATEST%", latest_date | replace: "%COUNT%", site.posts.size -%}{"@type":"Question","name":{{ item.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ ans | jsonify }}}}{% unless forloop.last %},{% endunless %}{%- endfor -%}]}
+,{"@type":"FAQPage","@id":{{ canonical | append: "#faq" | jsonify }},"mainEntity":[{%- for item in page.faq -%}{%- assign ans = item.a | replace: "%LATEST%", latest_date | replace: "%COUNT%", site.posts.size | replace: "%DESCRIPTION%", site.description -%}{"@type":"Question","name":{{ item.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ ans | jsonify }}}}{% unless forloop.last %},{% endunless %}{%- endfor -%}]}
 {%- endif -%}
 ]}
 </script>
