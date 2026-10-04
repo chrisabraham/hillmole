@@ -25,6 +25,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import mysqldump as md  # noqa: E402
 from extract import convert_breaks, repair  # noqa: E402
+from typography import clean, clean_title  # noqa: E402
 
 HOME = os.path.expanduser("~")
 SRC = glob.glob(f"{HOME}/hillmole-source/backup-*/")[0]
@@ -61,11 +62,24 @@ def recover_categories():
     return cats
 
 
+TYPO_LOG = []
+
+
 def write_post(e, cats, dest):
     labels = [c["label"] for c in cats.values() if e["mt_id"] in c["ids"]]
+    body = convert_breaks(e["text"])
+    if e["text_more"]:
+        body += "\n\n" + convert_breaks(e["text_more"])
+    body, _, changes = clean(body, keep_listen=True)
+    title = clean_title(e["title"])
+    if title != e["title"]:
+        changes.insert(0, f"title: {e['title']!r} -> {title!r}")
+    if changes:
+        TYPO_LOG.append(f"{e['created_on'][:10]} {e['basename']} (mt_id {e['mt_id']}, {dest})\n"
+                        + "".join(f"    {c}\n" for c in changes))
     fm = [
         "---",
-        f"title: {q(e['title'])}",
+        f"title: {q(title)}",
         f"date: {e['created_on']} -0500",
         f"permalink: {entry_path(e)}",
         f"categories: {q(labels)}",
@@ -73,13 +87,10 @@ def write_post(e, cats, dest):
         f"mt_id: {e['mt_id']}",
     ]
     if e["excerpt"]:
-        fm.append(f"description: {q(e['excerpt'])}")
+        fm.append(f"description: {q(clean_title(e['excerpt']))}")
     if e["keywords"]:
         fm.append(f"keywords: {q(e['keywords'])}")
     fm.append("---")
-    body = convert_breaks(e["text"])
-    if e["text_more"]:
-        body += "\n\n" + convert_breaks(e["text_more"])
     name = f"{e['created_on'][:10]}-{e['basename']}.html"
     with open(f"{REPO}/{dest}/{name}", "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(fm) + "\n" + body + "\n")
@@ -262,6 +273,10 @@ def main():
         write_post(e, cats, "_drafts")
     pages = archive_pages(pub, cats)
     write_archives(pages + redirect_pages(pages))
+    open(f"{REPO}/_migration/typography-changes.log", "w", encoding="utf-8").write(
+        "Per-entry changes from typography.py: links removed, -- to em dash,\n"
+        "... to ellipsis, straight quotes curled. Entry text is otherwise as\n"
+        "Movable Type published it.\n\n" + "\n".join(TYPO_LOG))
     write_trackback_feeds()
     kept = copy_kept_orphans()
     copy_static()

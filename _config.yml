@@ -35,9 +35,15 @@ author_bio: >-
   are inside them. The work is observational, introspective, and grounded in
   lived experience rather than theory.
 
-# Chris' profiles elsewhere (author sameAs in the schema), e.g.
-# - https://www.linkedin.com/in/...
-author_same_as: []
+# Chris' profiles elsewhere (author sameAs in the schema).
+author_same_as:
+  - https://chrisabraham.com/
+  - https://www.amazon.com/stores/Chris-Abraham/author/B0GD2HTQYC
+  - https://www.linkedin.com/in/chrisabraham
+  - https://x.com/chrisabraham
+  - https://chrisabraham.substack.com/
+  - https://www.reddit.com/user/chrisabraham
+  - https://github.com/chrisabraham
 
 # Site menu, shown under the banner and in the footer.
 nav:
