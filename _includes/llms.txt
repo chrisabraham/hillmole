@@ -8,6 +8,7 @@ The entries are fiction, written in the first person, and are meant to be read i
 - [Start at the beginning]({{ site.posts.last.url | absolute_url }}): "{{ site.posts.last.title }}", {{ site.posts.last.date | date: "%B %-d, %Y" }}
 - [Latest entry]({{ site.posts.first.url | absolute_url }}): "{{ site.posts.first.title }}", {{ site.posts.first.date | date: "%B %-d, %Y" }}
 - [The star-nosed mole]({{ '/archives/2005/08/star-nosed_mole.html' | absolute_url }}): the creature in the banner
+- [About Hill Mole]({{ '/about.html' | absolute_url }}): what it is, who wrote it, where to start
 - [All entries]({{ '/archives.html' | absolute_url }}): every entry by date
 
 ## Entries
