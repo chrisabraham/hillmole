@@ -1,12 +1,12 @@
 /* Hill Mole. Keeps the 2005 look (grey page, a 700px white column under
-   the 700px star-nosed mole, lowercase headings, grey links) with readable
-   sans-serif type and a dark theme. The column matches the banner so the
+   the 700px star-nosed mole, lowercase headings, grey links) with black
+   sans-serif text on white. The column matches the banner so the
    GIF fills it at native size; on phones both scale down together. */
 
 :root {
   --page: #cccccc;
   --paper: #ffffff;
-  --ink: #2b2b2b;
+  --ink: #000000;
   --muted: #6b6b6b;
   --link: #6f6f6f;
   --link-hover-bg: #999999;
@@ -18,33 +18,6 @@
   --heading: "Trebuchet MS", var(--sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --page: #141414;
-    --paper: #1f1f1f;
-    --ink: #dcdcdc;
-    --muted: #9a9a9a;
-    --link: #b3b3b3;
-    --link-hover-bg: #5a5a5a;
-    --link-hover-ink: #ffffff;
-    --rule: #333333;
-    --quote: #262626;
-    --field: #2a2a2a;
-  }
-}
-
-:root[data-theme="dark"] {
-  --page: #141414;
-  --paper: #1f1f1f;
-  --ink: #dcdcdc;
-  --muted: #9a9a9a;
-  --link: #b3b3b3;
-  --link-hover-bg: #5a5a5a;
-  --link-hover-ink: #ffffff;
-  --rule: #333333;
-  --quote: #262626;
-  --field: #2a2a2a;
-}
 
 *, *::before, *::after { box-sizing: border-box; }
 
