@@ -23,6 +23,7 @@
     <a href="{{ '/' | relative_url }}" accesskey="1"><img src="{{ '/images/hillMole.gif' | relative_url }}" alt="Hill Mole banner: close-up of a star-nosed mole's pink tentacled snout and pale digging claws, header for Chris Abraham's serialized spy novel" width="700" height="206" fetchpriority="high"></a>
     <button type="button" class="theme-toggle" id="theme-toggle" hidden>dark</button>
   </header>
+  {% include nav.html %}
   <div class="columns">
     <main class="content">
 {{ content }}
@@ -30,6 +31,7 @@
     {% include sidebar.html %}
   </div>
   <footer class="site-footer">
+    {% include nav.html label="Footer" %}
     <p>Hill Mole © 2005–{{ site.posts.first.date | date: "%Y" }} <a href="{{ '/about.html' | relative_url }}" rel="author">Chris Abraham</a>.</p>
     <p>Ran on Movable Type CGI, 2005–2022. Now static on GitHub Pages.</p>
   </footer>

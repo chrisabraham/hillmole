@@ -9,6 +9,7 @@ The entries are fiction, written in the first person, and are meant to be read i
 - [Latest entry]({{ site.posts.first.url | absolute_url }}): "{{ site.posts.first.title }}", {{ site.posts.first.date | date: "%B %-d, %Y" }}
 - [The star-nosed mole]({{ '/archives/2005/08/star-nosed_mole.html' | absolute_url }}): the creature in the banner
 - [About Hill Mole]({{ '/about.html' | absolute_url }}): what it is, who wrote it, where to start
+- [Hill Mole on Kindle]({{ site.kindle.url }}): the ebook edition on Amazon (ASIN {{ site.kindle.asin }})
 - [All entries]({{ '/archives.html' | absolute_url }}): every entry by date
 
 ## Entries

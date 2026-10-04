@@ -1,0 +1,32 @@
+---
+layout: default
+title: Hill Mole on Kindle
+seo_title: "Hill Mole: the Kindle ebook by Chris Abraham"
+description: "Hill Mole, Chris Abraham's serialized spy novel, is available as a Kindle ebook on Amazon. Read it on Kindle, or free here from the first entry."
+permalink: /book.html
+jsonld_type: ItemPage
+---
+{%- assign k = site.kindle -%}
+<h1 class="archive-title">Hill Mole on Kindle</h1>
+
+<div class="entry-body book">
+<p><strong>Hill Mole</strong>{% if k.subtitle != "" %}: <em>{{ k.subtitle }}</em>{% endif %}, by Chris Abraham, is available as a Kindle ebook on Amazon.</p>
+
+<p class="buy"><a class="button" href="{{ k.url }}" rel="noopener">Get Hill Mole on Kindle</a></p>
+
+{% if k.blurb != "" %}<blockquote>{{ k.blurb }}</blockquote>
+<p class="date">From the book's description on Amazon.</p>
+{% endif -%}
+<dl class="details">
+  <dt>Author</dt><dd><a href="{{ '/about.html' | relative_url }}" rel="author">Chris Abraham</a></dd>
+  <dt>Format</dt><dd>Kindle ebook</dd>
+  {% if k.date_published != "" %}<dt>Published</dt><dd>{{ k.date_published | date: "%B %-d, %Y" }}</dd>
+  {% endif %}{% if k.publisher %}<dt>Publisher</dt><dd>{{ k.publisher }}</dd>
+  {% endif %}{% if k.edition %}<dt>Edition</dt><dd>{{ k.edition }}</dd>
+  {% endif %}{% if k.pages %}<dt>Length</dt><dd>{{ k.pages }} pages</dd>
+  {% endif %}<dt>Language</dt><dd>English</dd>
+  <dt>ASIN</dt><dd>{{ k.asin }}</dd>
+</dl>
+
+<p>The whole serial is also here on the web, free, as it was first published: start at the very <a href="{{ site.posts.last.url | relative_url }}">beginning</a>.</p>
+</div>
