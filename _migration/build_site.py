@@ -14,6 +14,7 @@ webroot, and writes into the repo:
 Safe to re-run; generated directories are rebuilt from scratch.
 Usage: python3 _migration/build_site.py
 """
+import csv
 import datetime as dt
 import glob
 import json
@@ -65,6 +66,11 @@ def recover_categories():
 
 TYPO_LOG = []
 
+# Hand-written SEO title and description per entry (see seo_meta.tsv and
+# check_seo_titles.py): what each page is about, for search and answer engines.
+SEO_META = {r["mt_id"]: r for r in csv.DictReader(
+    open(os.path.join(os.path.dirname(__file__), "seo_meta.tsv"), encoding="utf-8"), delimiter="\t")}
+
 # When this text last changed (encoding repair + typography pass). Feeds the
 # sitemap's <lastmod> and the schema's dateModified, so Google recrawls them.
 CONTENT_REVISED = "2026-10-04 12:00:00 -0500"
@@ -96,9 +102,12 @@ def write_post(e, cats, dest):
     ]
     if changes or repair(e["raw_text"]) != e["raw_text"]:
         fm.append(f"last_modified_at: {CONTENT_REVISED}")
+    seo = SEO_META.get(str(e["mt_id"]))
+    if seo:
+        fm.append(f"seo_title: {q(seo['seo_title'])}")
+        fm.append(f"description: {q(seo['seo_description'])}")
     if e["excerpt"]:
-        # MT's excerpt field, kept for the record; descriptions use the opening words
-        fm.append(f"mt_excerpt: {q(clean_title(e['excerpt']))}")
+        fm.append(f"mt_excerpt: {q(clean_title(e['excerpt']))}")  # MT's excerpt, kept for the record
     if e["keywords"]:
         fm.append(f"keywords: {q(e['keywords'])}")
     fm.append("---")
