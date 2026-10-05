@@ -10,6 +10,8 @@ Add a Markdown file to `_posts/` named `YYYY-MM-DD-slug.md`:
 ---
 title: A new chapter
 date: 2026-10-05 09:00:00 -0500
+seo_title: What this entry is about, in 50 to 60 characters
+description: What happens or is argued in it, 140 to 160 characters, plainly, the way a searcher would put it.
 ---
 
 The text goes here.
@@ -39,7 +41,7 @@ The Gemfile pins the `github-pages` gem, so local builds match production. Plugi
 
 ## Search and discovery
 
-- `<title>` is at most 60 characters and the meta description at most 160, cut at word boundaries (`_includes/seo.html`, `_includes/fit.html`). The entry title on the page is never changed. To override either for one entry, set `seo_title` or `description` in its front matter.
+- Every entry has a hand-written SEO title (50–60 characters) and meta description (140–160) saying what the page is about, kept in `_migration/seo_meta.tsv` and checked by `python3 _migration/check_seo_titles.py`. No pipes, dashes, hyphens, or site/author name on entry pages; the main pages carry the name. For a new entry, add `seo_title:` and `description:` to its front matter; without them it falls back to its title plus its opening words.
 - JSON-LD on every page: the site is a `WebSite`, the novel a `Book`, each entry a `BlogPosting` + `Chapter` with its chapter number, plus breadcrumbs; the home page adds the 2006 `PodcastSeries`.
 - `sitemap.xml` (jekyll-sitemap) and `robots.txt`. Only the home page, the entries and `archives.html` are indexable. MT's monthly, weekly, daily and category archives repeat entry text, so they're `noindex, follow` (crawlable, not indexed) and left out of the sitemap.
 - `/llms.txt` (and the same content at `/llm.txt`) lists every entry; `/llms-full.txt` holds the full text.

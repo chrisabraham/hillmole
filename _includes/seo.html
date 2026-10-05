@@ -8,26 +8,25 @@
 {%- elsif page.url == "/" or page.url == "/index.html" -%}{%- assign kind = "home" -%}
 {%- elsif page.url == "/archives.html" -%}{%- assign kind = "archives" -%}{%- endif -%}
 
-{%- comment -%} ---- title ---- {%- endcomment -%}
+{%- comment -%} ---- title ----
+  Main pages carry the name (set per page, or below). Story pages carry only
+  their own title and opening words (story-title.html). No pipes or dashes.
+{%- endcomment -%}
 {%- case kind -%}
+{%- when "post" -%}{%- capture raw_title -%}{% include story-title.html title=page.title body=page.content %}{%- endcapture -%}
 {%- when "home" -%}{%- assign raw_title = "Hill Mole: " | append: site.title_tagline -%}
-{%- when "archives" -%}{%- capture raw_title -%}All {{ site.posts.size }} entries, 2005–{{ site.posts.first.date | date: "%Y" }} | Hill Mole{%- endcapture -%}
-{%- when "post" -%}
-{%- assign base = page.title -%}
-{%- assign same = site.posts | where: "title", page.title -%}
-{%- if same.size > 1 -%}{%- capture base -%}{{ page.title }} ({{ page.date | date: "%b %Y" }}){%- endcapture -%}{%- endif -%}
-{%- assign raw_title = base | append: " | Hill Mole" -%}{%- if raw_title.size > 60 -%}{%- assign raw_title = base -%}{%- endif -%}
-{%- when "category" -%}{%- assign raw_title = page.title | append: " Archives | Hill Mole" -%}
-{%- when "monthly" -%}{%- assign raw_title = page.title | append: " Archives | Hill Mole" -%}
-{%- when "daily", "weekly" -%}{%- assign raw_title = page.title | append: " | Hill Mole" -%}
-{%- else -%}{%- assign raw_title = page.title | default: site.title -%}{%- if page.title -%}{%- assign raw_title = raw_title | append: " | Hill Mole" -%}{%- endif -%}
+{%- when "archives" -%}{%- capture raw_title -%}Hill Mole by Chris Abraham: all {{ site.posts.size }} entries{%- endcapture -%}
+{%- when "category" -%}{%- assign raw_title = "Entries about " | append: page.title -%}
+{%- when "monthly", "daily" -%}{%- assign raw_title = "Entries from " | append: page.title -%}
+{%- when "weekly" -%}{%- assign raw_title = "Entries from the week of " | append: page.title | split: " - " | first -%}
+{%- else -%}{%- assign raw_title = page.seo_title | default: page.title | default: site.title -%}
 {%- endcase -%}
-{%- if page.seo_title -%}{%- assign raw_title = page.seo_title -%}{%- endif -%}
+{%- if page.seo_title and kind == "post" -%}{%- assign raw_title = page.seo_title -%}{%- endif -%}
 {%- capture seo_title -%}{%- include fit.html text=raw_title limit=60 -%}{%- endcapture -%}
 
 {%- comment -%} ---- description ---- {%- endcomment -%}
 {%- case kind -%}
-{%- when "post" -%}{%- assign raw_desc = page.content -%}{%- comment -%} the entry's own opening words, cut by fit.html {%- endcomment -%}
+{%- when "post" -%}{%- assign raw_desc = page.description | default: page.content -%}
 {%- when "home" -%}{%- assign raw_desc = site.description -%}
 {%- when "archives" -%}{%- assign raw_desc = site.description -%}
 {%- when "monthly", "category" -%}

@@ -1,0 +1,29 @@
+{%- comment -%}
+  Title tag for an entry: its own title, then its own opening words, up to 60
+  characters. No site name, no pipes, no dashes: the opening words stop before
+  any word containing a hyphen or dash. Titles of 45+ characters stand alone.
+{%- endcomment -%}
+{%- assign _t = include.title | strip -%}
+{%- if _t.size >= 45 -%}
+{%- capture _out -%}{%- include fit.html text=_t limit=60 -%}{%- endcapture -%}
+{%- else -%}
+{%- assign _last = _t | slice: -1 -%}
+{%- if _last == "." or _last == "?" or _last == "!" or _last == "…" -%}{%- assign _out = _t | append: " " -%}{%- else -%}{%- assign _out = _t | append: ": " -%}{%- endif -%}
+{%- assign _open = include.body | strip_html | replace: "&amp;", "&" | replace: "&quot;", '"' | replace: "&#39;", "'" | replace: "&nbsp;", " " | replace: "&#160;", " " | normalize_whitespace | strip -%}
+{%- assign _words = _open | split: " " -%}
+{%- assign _added = 0 -%}{%- assign _cut = false -%}
+{%- for _w in _words -%}
+{%- if _w contains "-" or _w contains "—" or _w contains "–" -%}{%- assign _cut = true -%}{%- break -%}{%- endif -%}
+{%- if _added == 0 -%}{%- assign _c = _out | append: _w -%}{%- else -%}{%- assign _c = _out | append: " " | append: _w -%}{%- endif -%}
+{%- if _c.size > 59 -%}{%- assign _cut = true -%}{%- break -%}{%- endif -%}
+{%- assign _out = _c -%}{%- assign _added = _added | plus: 1 -%}
+{%- endfor -%}
+{%- if _added == 0 -%}{%- assign _out = _t -%}
+{%- elsif _cut -%}
+{%- assign _e = _out | slice: -1 -%}
+{%- if _e == "," or _e == ";" or _e == ":" -%}{%- assign _n = _out.size | minus: 1 -%}{%- assign _out = _out | slice: 0, _n -%}{%- endif -%}
+{%- assign _e = _out | slice: -1 -%}
+{%- unless _e == "." or _e == "?" or _e == "!" -%}{%- assign _out = _out | append: "…" -%}{%- endunless -%}
+{%- endif -%}
+{%- endif -%}
+{{- _out | strip -}}
