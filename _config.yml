@@ -8,6 +8,9 @@ description: >-
 # Home page <title> is "Hill Mole: <title_tagline>"; keep it to 49 characters.
 title_tagline: a serialized novel by Chris Abraham
 genre: Literary fiction
+# Meta keywords: ignored by Google since 2009, kept for old time's sake.
+# Story pages add their own categories to these.
+keywords: Hill Mole, Chris Abraham, serialized novel, literary fiction, espionage fiction, Washington DC
 author_bio: >-
   Chris Abraham came to Washington, DC in 1988 to study at George Washington
   University, set on becoming a senator after attending the Close Up government
