@@ -44,6 +44,10 @@
 {%- assign canonical = page.url | replace: "/index.html", "/" | absolute_url -%}
 <title>{{ seo_title | escape }}</title>
 <meta name="description" content="{{ seo_desc | escape }}">
+{%- assign seo_keywords = site.keywords -%}
+{%- if kind == "post" and page.categories.size > 0 -%}{%- assign seo_keywords = page.categories | join: ", " | append: ", " | append: site.keywords -%}
+{%- elsif kind == "category" -%}{%- assign seo_keywords = page.title | append: ", " | append: site.keywords -%}{%- endif %}
+<meta name="keywords" content="{{ seo_keywords | escape }}">
 <link rel="canonical" href="{{ canonical }}">
 {%- if site.url != "https://hillmole.com" %}
 <meta name="robots" content="noindex">{% comment %} preview copy: keep it out of search {% endcomment %}
