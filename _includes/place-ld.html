@@ -1,0 +1,3 @@
+{%- comment -%} JSON-LD Place for include.key from _data/places.yml, with the places that contain it. {%- endcomment -%}
+{%- assign _p = site.data.places[include.key] -%}
+{"@type":{{ _p.type | jsonify }},"name":{{ _p.name | jsonify }},"sameAs":{{ _p.wiki | jsonify }},"geo":{"@type":"GeoCoordinates","latitude":{{ _p.geo[0] }},"longitude":{{ _p.geo[1] }}}{% if _p.in %},"containedInPlace":{% include place-ld.html key=_p.in %}{% endif %}}

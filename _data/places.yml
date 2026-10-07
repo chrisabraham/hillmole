@@ -1,0 +1,48 @@
+# Where Hill Mole entries happen (schema contentLocation, plus a "Set in" line
+# on the entry). An entry gets a place in its front matter (place: honolulu)
+# only when its own text puts the scene there; everything else stays with the
+# novel's setting, Washington, DC.
+washington-dc:
+  name: Washington, DC
+  type: City
+  wiki: https://en.wikipedia.org/wiki/Washington,_D.C.
+  geo: [38.9072, -77.0369]
+capitol-hill:
+  name: Capitol Hill
+  label: Capitol Hill, Washington, DC
+  type: Place
+  in: washington-dc
+  wiki: https://en.wikipedia.org/wiki/Capitol_Hill
+  geo: [38.8887, -76.9960]
+us-capitol:
+  name: United States Capitol
+  label: the Capitol, Washington, DC
+  type: LandmarksOrHistoricalBuildings
+  in: capitol-hill
+  wiki: https://en.wikipedia.org/wiki/United_States_Capitol
+  geo: [38.8899, -77.0091]
+alexandria:
+  name: Alexandria, Virginia
+  type: City
+  wiki: https://en.wikipedia.org/wiki/Alexandria,_Virginia
+  geo: [38.8048, -77.0469]
+mclean:
+  name: McLean, Virginia
+  type: Place
+  wiki: https://en.wikipedia.org/wiki/McLean,_Virginia
+  geo: [38.9339, -77.1773]
+arlington:
+  name: Arlington, Virginia
+  type: AdministrativeArea
+  wiki: https://en.wikipedia.org/wiki/Arlington_County,_Virginia
+  geo: [38.8816, -77.0910]
+honolulu:
+  name: Honolulu, Hawaii
+  type: City
+  wiki: https://en.wikipedia.org/wiki/Honolulu
+  geo: [21.3069, -157.8583]
+berlin:
+  name: Berlin, Germany
+  type: City
+  wiki: https://en.wikipedia.org/wiki/Berlin
+  geo: [52.5200, 13.4050]
