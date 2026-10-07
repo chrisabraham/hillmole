@@ -47,7 +47,7 @@
 {%- assign seo_keywords = site.keywords -%}
 {%- if kind == "post" and page.categories.size > 0 -%}{%- assign seo_keywords = page.categories | join: ", " | append: ", " | append: site.keywords -%}
 {%- endif -%}
-{%- if kind == "post" and page.place and page.place != "washington-dc" -%}{%- assign seo_keywords = site.data.places[page.place].name | append: ", " | append: seo_keywords -%}
+{%- if kind == "post" and page.place and page.place != "washington-dc" -%}{%- assign _town = site.data.places[page.place].name | split: "," | first -%}{%- unless seo_keywords contains _town -%}{%- assign seo_keywords = site.data.places[page.place].name | append: ", " | append: seo_keywords -%}{%- endunless -%}
 {%- elsif kind == "category" -%}{%- assign seo_keywords = page.title | append: ", " | append: site.keywords -%}{%- endif %}
 <meta name="keywords" content="{{ seo_keywords | escape }}">
 <link rel="canonical" href="{{ canonical }}">
