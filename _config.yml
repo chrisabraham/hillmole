@@ -21,6 +21,7 @@ author_bio: >-
   Columbia Pike. He loves the Pike more than humanly possible, which makes his
   jetset friends really sad.
 author: Chris Abraham
+author_alumni: George Washington University  # from author_bio (schema alumniOf)
 lang: en
 first_published: 2005-05-13
 image: /podcast/hillMole.png        # square art: favicon, podcast, schema
