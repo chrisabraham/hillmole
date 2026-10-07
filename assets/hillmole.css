@@ -51,7 +51,7 @@ body {
 
 a { color: var(--link); text-decoration: none; }
 a:hover, a:focus-visible { background: var(--link-hover-bg); color: var(--link-hover-ink); }
-.entry-body a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.entry-body a, p a:not(.button) { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
 #container {
   max-width: 700px;
