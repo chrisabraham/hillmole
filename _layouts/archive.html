@@ -24,7 +24,7 @@ layout: default
   <div class="entry-body">
 {{ post.content }}
   </div>
-  <p class="posted"><a href="{{ post.url | relative_url }}">Permalink</a></p>
+  <p class="posted"><a href="{{ post.url | relative_url }}">Permalink<span class="visually-hidden"> for {{ post.title }}</span></a></p>
 </article>
 {% endfor %}
 {% if shown == 0 %}<p>No entries here any more. <a href="{{ '/archives.html' | relative_url }}">Every entry</a> is listed in the archives.</p>{% endif %}
