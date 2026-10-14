@@ -141,6 +141,8 @@ h1, h2, h3 {
 .sidebar p { margin: 0 0 1rem; }
 .sidebar .feeds a { margin-right: .5em; }
 .sidebar .badge img { display: block; }
+.sidebar .kindle img { margin-bottom: .4rem; }
+.sidebar .disclosure { font-size: .8rem; color: var(--muted, #555); }
 .search input {
   width: 100%;
   font: inherit;

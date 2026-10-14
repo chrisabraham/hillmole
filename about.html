@@ -34,7 +34,7 @@ jsonld_type: AboutPage
 <h2 id="author">About the author</h2>
 {% if site.author_bio %}<p>{{ site.author_bio }}</p>
 {% endif %}<p>He is at <a href="https://chrisabraham.com/">chrisabraham.com</a> and <a href="https://chrisabraham.substack.com/">on Substack</a>.</p>
-<p>Hill Mole is also a Kindle ebook: <a href="{{ '/book.html' | relative_url }}"><em>{{ site.kindle.title }}</em></a>.</p>
+<p>Hill Mole is also a Kindle ebook: <a href="{{ site.kindle.affiliate_url }}" rel="sponsored noopener"><em>{{ site.kindle.title }}</em></a> (<a href="{{ '/book.html' | relative_url }}">details</a>). As an Amazon Associate I earn from qualifying purchases.</p>
 
 <p><a href="{{ '/archives.html' | relative_url }}">Every entry, by date</a></p>
 </div>

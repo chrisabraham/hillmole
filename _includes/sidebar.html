@@ -12,7 +12,14 @@
   <p>Start at the very <a href="{{ site.posts.last.url | relative_url }}">beginning</a><br>a very good place to start.</p>
   <p>The creature in the banner is a <a href="{{ '/archives/2005/08/star-nosed_mole.html' | relative_url }}">star-nosed mole</a>.</p>
   <p><a href="{{ '/about.html' | relative_url }}">About Hill Mole</a><br><a href="{{ '/archives.html' | relative_url }}">Every entry</a></p>
-  <p class="badge">
-    <a href="{{ '/podcast/index.xml' | relative_url }}"><img src="{{ '/hillMoleiTunes.gif' | relative_url }}" alt="Hill Mole podcast" width="160" height="160" loading="lazy"></a>
-  </p>
+  <div class="badge">
+    {%- comment -%} The chapters are sacred: no store links on entry pages or the MT
+    archives that repeat them. Supporting pages and the home page sell the book. {%- endcomment -%}
+    {%- if page.layout == "default" %}
+    <p class="kindle"><a href="{{ site.kindle.affiliate_url }}" rel="sponsored noopener"><picture><source type="image/webp" srcset="{{ '/images/kindle-cover-160.webp' | relative_url }} 160w, {{ '/images/kindle-cover-320.webp' | relative_url }} 320w" sizes="160px"><img src="{{ site.kindle.cover | relative_url }}" alt="{{ site.kindle.cover_alt | escape }}" width="160" height="254" loading="lazy"></picture></a>
+    <a href="{{ site.kindle.affiliate_url }}" rel="sponsored noopener">Hill Mole on Kindle</a></p>
+    <p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+    {%- endif %}
+    <p><a href="{{ '/podcast/index.xml' | relative_url }}"><img src="{{ '/hillMoleiTunes.gif' | relative_url }}" alt="Hill Mole podcast" width="160" height="160" loading="lazy"></a></p>
+  </div>
 </aside>

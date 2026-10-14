@@ -5,11 +5,15 @@ seo_title: "Hill Mole on Kindle: Life is But a Dream, by Chris Abraham"
 description: "Hill Mole: Life is But a Dream: I Was Merely a Dupe and a Fool, by Chris Abraham. Kindle ebook, Gerris Corp, 2024."
 permalink: /book.html
 jsonld_type: ItemPage
+og_image: /images/kindle-cover-600.jpg
+og_image_width: 600
+og_image_height: 954
 ---
 {%- assign k = site.kindle -%}
 <h1 class="archive-title">Hill Mole on Kindle</h1>
 
 <div class="entry-body book">
+<p class="cover"><a href="{{ k.affiliate_url }}" rel="sponsored noopener"><picture><source type="image/webp" srcset="{{ '/images/kindle-cover-320.webp' | relative_url }} 320w, {{ '/images/kindle-cover-600.webp' | relative_url }} 600w" sizes="(min-width: 700px) 300px, 60vw"><img src="{{ k.cover | relative_url }}" alt="{{ k.cover_alt | escape }}" width="300" height="477" fetchpriority="high"></picture></a></p>
 <p><em>{{ k.title }}</em>, by Chris Abraham, is available as a Kindle ebook on Amazon.</p>
 
 <p class="buy"><a class="button" href="{{ k.affiliate_url }}" rel="sponsored noopener">Get Hill Mole on Kindle</a></p>

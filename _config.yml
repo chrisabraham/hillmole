@@ -39,6 +39,8 @@ kindle:
   edition: 1st
   pages: 67
   blurb: ""
+  cover: /images/kindle-cover-600.jpg   # from Amazon, Oct 2026; WebP copies at 160, 320, 600
+  cover_alt: 'Book cover: "I Was Merely a Dupe and a Fool: Navigating the Shadows of Intrigue," Chris Abraham, over a star-nosed mole.'
 
 # Chris' profiles elsewhere (author sameAs in the schema).
 author_same_as:
