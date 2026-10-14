@@ -44,6 +44,7 @@ kindle:
 
 # Chris' profiles elsewhere (author sameAs in the schema).
 author_same_as:
+  - https://mastodon.social/@chrisa
   - https://chrisabraham.com/
   - https://www.amazon.com/stores/Chris-Abraham/author/B0GD2HTQYC
   - https://www.linkedin.com/in/chrisabraham
