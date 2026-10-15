@@ -12,7 +12,8 @@ for p in glob.glob(os.path.join(ROOT, "_posts", "*.html")):
     s = open(p, encoding="utf-8").read()
     fm = s[:s.index("\n---\n", 4)]
     body = html.unescape(re.sub(r"<[^>]+>", " ", s[s.index("\n---\n", 4) + 5:]))
-    posts.append({"date": re.search(r"^date: (.*)$", fm, re.M).group(1),
+    place = re.search(r"^place: (.*)$", fm, re.M)
+    posts.append({"place": place.group(1).strip() if place else "", "date": re.search(r"^date: (.*)$", fm, re.M).group(1),
                   "title": html.unescape(re.search(r"^title: (.*)$", fm, re.M).group(1).strip('"')),
                   "url": re.search(r"^permalink: (.*)$", fm, re.M).group(1), "body": body})
 posts.sort(key=lambda p: p["date"])
@@ -37,6 +38,12 @@ def W_entries():
         if re.search(r"(?<![\w.])W(?:’s)?(?=[\s,.’])", b):
             out.add(p["n"])
     return out
+
+# Entries whose front matter sets the scene in a place; their numbers print in bold under that place.
+SET_IN = {"Washington, DC": {"washington-dc"}, "Capitol Hill": {"capitol-hill", "us-capitol"}, "Hawaii": {"honolulu"},
+          "Berlin": {"berlin"}, "Alexandria, Virginia": {"alexandria"}, "Arlington, Virginia": {"arlington"},
+          "Langley and McLean": {"mclean"}}
+set_in = {h: {p["n"] for p in posts if p["place"] in tags} for h, tags in SET_IN.items()}
 
 # heading -> regex over the entry text, or a set of entry numbers
 H = {
@@ -126,6 +133,10 @@ H = {
   "scene: moving to Berlin": titles("Upon Moving to Berlin"),
   "scene: the recruitment day near Dulles": titles("Even Spies Are Recruited By Headhunters"),
   "scene: flying over Russia to Kathmandu, 1990": titles("And ye shall hear of wars and rumors of wars"),
+  # eras of the narrator's life
+  "era: growing up in Hawaii": set_in["Hawaii"] | titles("Fucking Haole", "Fire Can Lick Behind These Eyes"),
+  "era: college in Washington": titles("Bike Messenger", "Pre-Internet in a Big Way", "Washington Summers", "Capitol Hill was Open Door", "Dosed on Acid", "All the Shapes and Colors Around Me", "People Recognize Patterns", "Pervert or Kidnapper", "We Both Wanted to be James Bond"),
+  "era: the Berlin years": set_in["Berlin"] | titles("Upon Moving to Berlin"),
   # plot points
   "plot: the opening confession, a dupe and a fool": titles("I Was Merely a Dupe and a Fool.", "Inside the Beltway", "According to Plan"),
   "plot: the documents on the USB dongle": titles("Zack's is Small and Dark"),
@@ -142,15 +153,17 @@ H = {
 
 entries = []
 for head, rule in H.items():
-    nums = sorted(rule if isinstance(rule, set) else {p["n"] for p in posts if re.search(rule, p["body"])})
+    nums = rule if isinstance(rule, set) else {p["n"] for p in posts if re.search(rule, p["body"])}
+    nums = sorted(nums | set_in.get(head, set()))
     if nums:
         entries.append((head, nums))
-key = lambda h: re.sub(r"^(the |scene: |plot: )", "", h[0].lower())
+key = lambda h: re.sub(r"^(the |scene: |plot: |era: )", "", h[0].lower())
 entries.sort(key=key)
 
-def link(n):
+def link(n, bold=False):
     p = posts[n - 1]
-    return '<a href="{{ \'%s\' | relative_url }}" title="%s">%d</a>' % (p["url"], html.escape(p["title"]), n)
+    a = '<a href="{{ \'%s\' | relative_url }}" title="%s">%d</a>' % (p["url"], html.escape(p["title"]), n)
+    return "<strong>%s</strong>" % a if bold else a
 
 rows, letter = [], None
 for head, nums in entries:
@@ -160,7 +173,7 @@ for head, nums in entries:
             rows.append("</ul>")
         rows += ['<h2 id="index-%s">%s</h2>' % (first.lower(), first), '<ul class="book-index">']
         letter = first
-    rows.append("  <li>%s, %s</li>" % (html.escape(head, quote=False), ", ".join(link(n) for n in nums)))
+    rows.append("  <li>%s, %s</li>" % (html.escape(head, quote=False), ", ".join(link(n, n in set_in.get(head, ())) for n in nums)))
 rows.append("</ul>")
 
 page = """---
@@ -173,7 +186,7 @@ permalink: /book-index.html
 <h1 class="archive-title">Index</h1>
 
 <div class="entry-body about">
-<p>Every Washington book has an index in the back, and everyone in town flips to it first. Here is Hill Mole's. Numbers are entry numbers, as shown at the top of each entry, and each one links to its entry. People in the novel go by initials. See also the <a href="{{ '/glossary.html' | relative_url }}">glossary</a>.</p>
+<p>Every Washington book has an index in the back, and everyone in town flips to it first. Here is Hill Mole's. Numbers are entry numbers, as shown at the top of each entry, and each one links to its entry. Bold numbers under a place are entries set there. People in the novel go by initials. See also the <a href="{{ '/glossary.html' | relative_url }}">glossary</a>.</p>
 
 """ + "\n".join(rows) + "\n</div>\n"
 open(os.path.join(ROOT, "book-index.html"), "w", encoding="utf-8").write(page)
