@@ -60,6 +60,7 @@ nav:
   - { title: History, url: /about.html#history }
   - { title: Kindle book, url: /book.html }
   - { title: Archives, url: /archives.html }
+  - { title: Glossary, url: /glossary.html }
   - { title: Colophon, url: /colophon.html }
 
 # IndexNow (Bing, Yandex, Seznam, Naver). The matching <key>.txt sits at the
