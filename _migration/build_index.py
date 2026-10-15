@@ -190,8 +190,9 @@ page = """---
 layout: default
 title: Index
 seo_title: "Hill Mole index: every person, place, theme, and scene"
-description: "A back of the book index for Hill Mole: people, places, agencies, themes, and scenes, with the number of every entry where each one appears."
+description: "A back-of-the-book index for Hill Mole: people, places, agencies, themes, and scenes, with the number of every entry where each one appears."
 permalink: /book-index.html
+last_modified_at: """ + __import__("datetime").date.today().isoformat() + """
 ---
 <h1 class="archive-title">Index</h1>
 
