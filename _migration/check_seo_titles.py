@@ -1,6 +1,6 @@
 """Check seo_meta.tsv: one row per published entry, the row's title_starts
 matches the entry's own title (catches a wrong mt_id), titles 50-60 chars,
-descriptions 140-160, no pipes, dashes or hyphens, no site or author name."""
+descriptions 140-160, no pipes or separator dashes (hyphens inside words are fine), no site or author name."""
 import csv, glob, re, unicodedata
 posts = {}
 for f in glob.glob('_posts/*.html'):
@@ -19,7 +19,7 @@ for r in rows:
     if not 50 <= len(t) <= 60: problems.append(f'{i}: title {len(t)} chars')
     if not 140 <= len(d) <= 160: problems.append(f'{i}: description {len(d)} chars')
     for s in (t, d):
-        if re.search(r'[|\-—–]', s): problems.append(f'{i}: pipe/dash/hyphen: {s}')
+        if re.search(r'\||[—–]|(?<!\w)-|-(?!\w)', s): problems.append(f'{i}: pipe or separator dash: {s}')
         if 'Hill Mole' in s or 'Chris Abraham' in s: problems.append(f'{i}: site name: {s}')
 missing = sorted(set(posts) - seen, key=int)
 print(f'{len(rows)} rows; {len(missing)} entries without one {missing[:10]}; {len(problems)} problems')
