@@ -12,6 +12,13 @@ The entries are fiction, written in the first person, and are meant to be read i
 - [Hill Mole on Kindle]({{ site.kindle.affiliate_url }}): the ebook edition on Amazon (ASIN {{ site.kindle.asin }})
 - [All entries]({{ '/archives.html' | absolute_url }}): every entry by date
 
+## Reader's companion
+
+- [Index]({{ '/book-index.html' | absolute_url }}): every person, place, agency, theme, and scene, A to Z, with the number of each entry where it appears
+- [Glossary]({{ '/glossary.html' | absolute_url }}): the spy, military, Hawaii, and Washington vocabulary, each term linked to its first appearance
+- [Notes]({{ '/notes.html' | absolute_url }}): sourced endnotes on the history and quotations behind the book, the threads that run through it, and the book by the numbers
+- [Atlas]({{ '/atlas.html' | absolute_url }}): a map of the book's places, each linked to the entries set there
+
 ## Entries
 {% assign chron = site.posts | reverse %}{% for post in chron %}
 - [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.date | date: "%Y-%m-%d" }}{% endfor %}

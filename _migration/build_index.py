@@ -165,16 +165,26 @@ def link(n, bold=False):
     a = '<a href="{{ \'%s\' | relative_url }}" title="%s">%d</a>' % (p["url"], html.escape(p["title"]), n)
     return "<strong>%s</strong>" % a if bold else a
 
-rows, letter = [], None
+BACK = '<p class="index-top"><a href="#index-letters">Back to the letters</a></p>'
+rows, letter, present, ids = [], None, set(), set()
 for head, nums in entries:
     first = key((head,))[0].upper()
+    first = first if first.isalpha() else "0"
     if first != letter:
         if letter:
-            rows.append("</ul>")
-        rows += ['<h2 id="index-%s">%s</h2>' % (first.lower(), first), '<ul class="book-index">']
+            rows += ["</ul>", BACK]
+        rows += ['<h2 id="index-%s">%s</h2>' % (first.lower(), "0–9" if first == "0" else first), '<ul class="book-index">']
         letter = first
-    rows.append("  <li>%s, %s</li>" % (html.escape(head, quote=False), ", ".join(link(n, n in set_in.get(head, ())) for n in nums)))
-rows.append("</ul>")
+        present.add(first)
+    slug = "ix-" + re.sub(r"[^a-z0-9]+", "-", head.lower()).strip("-")
+    while slug in ids:
+        slug += "-2"
+    ids.add(slug)
+    rows.append('  <li id="%s">%s, %s</li>' % (slug, html.escape(head, quote=False), ", ".join(link(n, n in set_in.get(head, ())) for n in nums)))
+rows += ["</ul>", BACK]
+jump = '<nav class="index-letters" id="index-letters" aria-label="Jump to a letter"><p>%s</p></nav>' % " ".join(
+    ('<a href="#index-%s">%s</a>' % (k.lower(), lab)) if k in present else '<span class="index-empty" title="No headings under %s">%s</span>' % (lab, lab)
+    for k, lab in [("0", "0–9")] + [(chr(c), chr(c)) for c in range(65, 91)])
 
 page = """---
 layout: default
@@ -188,6 +198,6 @@ permalink: /book-index.html
 <div class="entry-body about">
 <p>Every Washington book has an index in the back, and everyone in town flips to it first. Here is Hill Mole's. Numbers are entry numbers, as shown at the top of each entry, and each one links to its entry. Bold numbers under a place are entries set there. People in the novel go by initials. See also the <a href="{{ '/glossary.html' | relative_url }}">glossary</a>.</p>
 
-""" + "\n".join(rows) + "\n</div>\n"
+""" + jump + "\n" + "\n".join(rows) + "\n</div>\n"
 open(os.path.join(ROOT, "book-index.html"), "w", encoding="utf-8").write(page)
 print(len(entries), "headings,", sum(len(n) for _, n in entries), "references")

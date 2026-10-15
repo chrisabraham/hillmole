@@ -214,3 +214,11 @@ h3.year { font-size: 1.2rem; margin: 1.5rem 0 .4rem; border-bottom: 1px solid va
 .atlas .pin:hover, .atlas .pin:focus { background: rgba(160, 30, 20, .18); outline: 2px solid #9b1c12; outline-offset: 1px; }
 .atlas-places li { margin-bottom: .5em; }
 .atlas-places li:target { background: rgba(160, 30, 20, .08); }
+
+/* book index: letter bar that stays in view while reading */
+.index-letters { position: sticky; top: 0; z-index: 1; background: var(--paper); border-bottom: 1px solid var(--rule); font-family: var(--heading); margin: 0 0 1rem; }
+.index-letters p { margin: 0; padding: .3rem 0; display: flex; flex-wrap: wrap; gap: .1rem .2rem; }
+.index-letters a, .index-letters span { display: inline-block; min-width: 28px; min-height: 28px; line-height: 28px; text-align: center; }
+.index-letters .index-empty { color: var(--muted); }
+.index-top { font-size: .9em; margin: -.3rem 0 1.2rem; }
+[id^="index-"], [id^="ix-"] { scroll-margin-top: 3.5rem; }
