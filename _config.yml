@@ -63,6 +63,7 @@ nav:
   - { title: Glossary, url: /glossary.html }
   - { title: Index, url: /book-index.html }
   - { title: Notes, url: /notes.html }
+  - { title: Atlas, url: /atlas.html }
   - { title: Colophon, url: /colophon.html }
 
 # IndexNow (Bing, Yandex, Seznam, Naver). The matching <key>.txt sits at the

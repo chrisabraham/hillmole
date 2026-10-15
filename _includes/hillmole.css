@@ -207,3 +207,10 @@ h3.year { font-size: 1.2rem; margin: 1.5rem 0 .4rem; border-bottom: 1px solid va
   .sidebar > * { grid-column: 1; }
   .sidebar > .badge { grid-column: 2; grid-row: 1 / span 6; }
 }
+/* Atlas: clickable places over the map, placed by percentage so they hold at any width. */
+.atlas { position: relative; margin: 0 0 1.1em; }
+.atlas img { display: block; width: 100%; height: auto; }
+.atlas .pin { position: absolute; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%; text-decoration: none; }
+.atlas .pin:hover, .atlas .pin:focus { background: rgba(160, 30, 20, .18); outline: 2px solid #9b1c12; outline-offset: 1px; }
+.atlas-places li { margin-bottom: .5em; }
+.atlas-places li:target { background: rgba(160, 30, 20, .08); }
