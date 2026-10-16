@@ -67,6 +67,12 @@
 <meta property="og:image:width" content="{{ page.og_image_width }}">
 <meta property="og:image:height" content="{{ page.og_image_height }}">
 <meta property="og:image:alt" content="{{ page.og_image_alt | default: site.kindle.cover_alt | escape }}">
+{%- elsif is_post %}
+{%- assign card = page.mt_basename | default: page.slug | prepend: '/assets/cards/' | append: '.jpg' %}
+<meta property="og:image" content="{{ card | absolute_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hill Mole, {{ page.date | date: '%B %-d, %Y' }}: {{ page.title | escape }}">
 {%- else %}
 <meta property="og:image" content="{{ site.social_card | absolute_url }}">
 <meta property="og:image:width" content="1200">
@@ -86,7 +92,11 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ seo_title | escape }}">
 <meta name="twitter:description" content="{{ seo_desc | escape }}">
+{%- if page.og_image == nil and is_post %}
+<meta name="twitter:image" content="{{ card | absolute_url }}">
+{%- else %}
 <meta name="twitter:image" content="{{ page.og_image | default: site.social_card | absolute_url }}">
+{%- endif %}
 
 {%- comment -%} ---- JSON-LD ---- {%- endcomment -%}
 {%- capture person -%}{"@type":"Person","@id":{{ site_root | append: "#author" | jsonify }},"name":{{ site.author | jsonify }},"url":{{ '/about.html' | absolute_url | jsonify }}{% if site.author_bio %},"description":{{ site.author_bio | jsonify }}{% endif %}{% if site.author_alumni %},"alumniOf":{"@type":"CollegeOrUniversity","name":{{ site.author_alumni | jsonify }}}{% endif %}{% if site.author_same_as.size > 0 %},"sameAs":{{ site.author_same_as | jsonify }}{% endif %}}{%- endcapture -%}
