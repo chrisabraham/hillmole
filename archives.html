@@ -4,7 +4,7 @@ title: Archives
 permalink: /archives.html
 ---
 <h1 class="archive-title">Archives</h1>
-<p>Every entry, oldest first.</p>
+<p>Every entry, oldest first. The whole book, text and read-aloud audio on one page, is the <a href="{{ '/complete.html' | relative_url }}">complete edition</a>.</p>
 {% assign chron = site.posts | reverse %}{% for post in chron %}
   {% assign y = post.date | date: "%Y" %}
   {% if y != last_y %}{% unless forloop.first %}</ul>{% endunless %}

@@ -60,6 +60,7 @@ nav:
   - { title: History, url: /about.html#history }
   - { title: Kindle book, url: /book.html }
   - { title: Archives, url: /archives.html }
+  - { title: Complete edition, url: /complete.html }
   - { title: Glossary, url: /glossary.html }
   - { title: Index, url: /book-index.html }
   - { title: Notes, url: /notes.html }

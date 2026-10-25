@@ -215,6 +215,15 @@ h3.year { font-size: 1.2rem; margin: 1.5rem 0 .4rem; border-bottom: 1px solid va
 .atlas-places li { margin-bottom: .5em; }
 .atlas-places li:target { background: rgba(160, 30, 20, .08); }
 
+/* read-aloud narration (audio edition): the .listen label and player sit
+   above a chapter's text, on the chapter page and on /complete.html */
+.listen { font-family: var(--heading); font-size: .85rem; margin: 0 0 .3rem; color: var(--muted); }
+audio.player { display: block; width: 100%; margin: 0 0 1.25rem; }
+.complete-toc { columns: 2; column-gap: 2rem; margin: 0 0 2rem; padding-left: 1.4rem; }
+.complete-toc li { break-inside: avoid; margin: 0 0 .15rem; }
+.chapter { margin: 0 0 2.75rem; }
+.chapter h2 { scroll-margin-top: 1rem; }
+
 /* book index: letter bar that stays in view while reading */
 .index-letters { position: sticky; top: 0; z-index: 1; background: var(--paper); border-bottom: 1px solid var(--rule); font-family: var(--heading); margin: 0 0 1rem; }
 .index-letters p { margin: 0; padding: .3rem 0; display: flex; flex-wrap: wrap; gap: .1rem .2rem; }

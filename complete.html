@@ -1,0 +1,30 @@
+---
+layout: default
+title: The Complete Hill Mole
+seo_title: "Hill Mole complete edition: all 309 chapters in one place"
+description: "Every chapter of Hill Mole, Chris Abraham's serialized novel, on one page: the full text in order, each chapter with its read-aloud audio player."
+permalink: /complete.html
+---
+<h1 class="archive-title">The Complete Hill Mole</h1>
+
+<div class="entry-body">
+<p>The whole novel on one page: all {{ site.posts.size }} chapters, in order, full text. Every chapter heading carries its read-aloud player, so the book can be listened to straight through here without clicking from chapter to chapter. Each chapter also keeps its own page, linked from its heading, and the audio edition has its own feed, <a href="{{ '/audio.xml' | relative_url }}">audio.xml</a>, for podcast apps. New here? The <a href="{{ '/about.html' | relative_url }}">about page</a> says what this book is and where it came from.</p>
+</div>
+
+{% assign chron = site.posts | reverse %}
+<nav aria-label="Chapters">
+<ol class="complete-toc">
+{% for post in chron %}  <li><a href="#ch-{{ forloop.index }}">{{ post.title }}</a></li>
+{% endfor %}</ol>
+</nav>
+
+{% for post in chron %}
+<section class="chapter" id="ch-{{ forloop.index }}">
+  <h2><a href="{{ post.url | relative_url }}">{{ forloop.index }}. {{ post.title }}</a></h2>
+  <p class="date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
+  {% include listen.html basename=post.mt_basename %}
+  <div class="entry-body">
+{{ post.content }}
+  </div>
+</section>
+{% endfor %}

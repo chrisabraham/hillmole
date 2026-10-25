@@ -19,6 +19,18 @@ The text goes here.
 
 Push to `main` and GitHub Pages publishes it at `/archives/2026/10/a-new-chapter.html`, the same URL shape as the old entries. It joins the prev/next chain, the front page, the archives list, and all three feeds automatically.
 
+## The audio edition
+
+Every chapter is also read aloud (added Oct 25, 2026): a narration in the male voice "Weighty Bell" from the built-in tts, free, no paid API. The player sits above the text on each chapter's own page; `/complete.html` holds the whole book — every chapter's full text and its player — on one page; and `/audio.xml` is the chapters as a podcast feed (full text in `content:encoded`, `itunes:episode` = chapter number) for listening in order in a podcast app. The 2006 author-read podcast at `/podcast/` is untouched; this edition stands alongside it.
+
+Run it locally before pushing a new entry:
+
+```sh
+python3 _audio/narrate.py            # narrates what's owed, rebuilds data + feed
+```
+
+`_audio/narrate.py` keys each narration to its clean text source in `_audio/text/<basename>.txt` (sha256 of voice + title + text in `_audio/manifest.json`), writes MP3s to `assets/audio/<basename>.mp3`, and regenerates `_data/audio.yml` (read by `_includes/listen.html`) and `audio.xml`. Change the one `CHAPTER_VOICE` constant and the next run re-renders everything in the new voice. The MP3s are binaries and cannot ride the UTF-8 push route; they are uploaded to `assets/audio/` through the GitHub web UI, the same route as the other sites' audio. Everything else the tool writes is text and pushes normally.
+
 ## What's where
 
 - `_posts/`: the 309 published entries from Movable Type, one `.html` file each, with an explicit `permalink` matching the original URL. Bodies are what MT published, plus deliberate changes, every one listed in `_migration/typography-changes.log`: encoding repairs; spelling and grammar fixes from `_migration/corrections.tsv` (one row per fix; delete a row to undo it); and `_migration/typography.py` (no hyperlinks in the prose except the 2006 `[Listen]` podcast links; `--` to closed-up em dash; `...` to `…`; curly quotes). They're generated, so **don't edit these by hand**; change the generator and re-run it.

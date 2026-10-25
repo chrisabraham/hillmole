@@ -11,6 +11,7 @@ The entries are fiction, written in the first person, and are meant to be read i
 - [About Hill Mole]({{ '/about.html' | absolute_url }}): what it is, who wrote it, where to start
 - [Hill Mole on Kindle]({{ site.kindle.affiliate_url }}): the ebook edition on Amazon (ASIN {{ site.kindle.asin }})
 - [All entries]({{ '/archives.html' | absolute_url }}): every entry by date
+- [The complete edition]({{ '/complete.html' | absolute_url }}): every entry's full text and read-aloud audio on one page
 
 ## Reader's companion
 
@@ -28,4 +29,5 @@ The entries are fiction, written in the first person, and are meant to be read i
 - [Atom feed]({{ '/atom.xml' | absolute_url }})
 - [RSS 2.0 feed]({{ '/index.xml' | absolute_url }})
 - [Podcast feed]({{ '/podcast/index.xml' | absolute_url }}): early chapters read by the author, 2006
+- [Audio feed]({{ '/audio.xml' | absolute_url }}): every entry read aloud (audio edition, 2026)
 - [Sitemap]({{ '/sitemap.xml' | absolute_url }})
