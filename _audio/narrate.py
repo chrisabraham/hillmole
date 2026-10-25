@@ -217,7 +217,7 @@ def write_feed(posts, manifest):
         "<copyright>%s</copyright>" % esc("© 2005–%d %s" % (newest.year, AUTHOR)),
         "<lastBuildDate>%s</lastBuildDate>" % email.utils.format_datetime(
             newest.astimezone(datetime.timezone.utc), usegmt=True),
-        '<atom:link href="%s/audio.xml" rel="self" type="application/rss+xml"/>' % SITE,
+        '<atom:link href="%s/__SELF__" rel="self" type="application/rss+xml"/>' % SITE,
         "<itunes:author>%s</itunes:author>" % esc(AUTHOR),
         "<itunes:owner><itunes:name>%s</itunes:name><itunes:email>%s</itunes:email></itunes:owner>"
         % (esc(AUTHOR), OWNER_EMAIL),
@@ -235,9 +235,35 @@ def write_feed(posts, manifest):
                       'xmlns:content="http://purl.org/rss/1.0/modules/content/" '
                       'xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">',
                       "<channel>"] + channel + items + ["</channel>", "</rss>", ""])
-    with open(FEED_PATH, "w", encoding="utf-8") as f:
-        f.write(feed)
+    # Canonical feed is audio.xml; podcast.xml, feed.xml and rss.xml are the
+    # same feed at the conventional alternate addresses, each pointing its
+    # atom self-link at its own URL, regenerated in this same pass.
+    for name in ("audio.xml", "podcast.xml", "feed.xml", "rss.xml"):
+        with open(os.path.join(ROOT, name), "w", encoding="utf-8") as f:
+            f.write(feed.replace("__SELF__", name))
+    stub_dir = os.path.join(ROOT, "feed")
+    os.makedirs(stub_dir, exist_ok=True)
+    with open(os.path.join(stub_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(FEED_STUB)
     return len(done)
+
+
+FEED_STUB = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hill Mole — audio feed</title>
+<meta name="description" content="The Hill Mole audio feed: Chris Abraham's novel read aloud, every chapter, in order.">
+<link rel="canonical" href="https://hillmole.com/audio.xml">
+<meta http-equiv="refresh" content="0; url=https://hillmole.com/audio.xml">
+<style>body{font-family:Georgia,serif;max-width:34em;margin:3em auto;padding:0 1em;line-height:1.5}a{color:#7a4d00}</style>
+</head>
+<body>
+<h2>The Hill Mole audio feed has one home</h2>
+<p>This way to the feed: <a href="https://hillmole.com/audio.xml">hillmole.com/audio.xml</a> — Chris Abraham's novel <em>Hill Mole</em> read aloud, every chapter, in order. The same feed also answers at <a href="https://hillmole.com/podcast.xml">/podcast.xml</a>, <a href="https://hillmole.com/feed.xml">/feed.xml</a> and <a href="https://hillmole.com/rss.xml">/rss.xml</a>.</p>
+</body>
+</html>
+"""
 
 
 def write_data_yml(posts, manifest):
