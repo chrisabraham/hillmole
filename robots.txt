@@ -50,6 +50,7 @@ Allow: /
 Disallow: /attic/
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
+Sitemap: {{ '/image-sitemap.xml' | absolute_url }}
 
 # AI preferences (IETF AIPREF draft, draft-kelley-aipref-training-preference-signal), adopted Nov 10, 2026:
 # Willkommen, bienvenue, welcome. This house welcomes AI crawlers to train on and to cite

@@ -1,0 +1,31 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{%- for post in site.posts %}
+{%- unless post.sitemap == false %}
+  <url>
+    <loc>{{ post.url | absolute_url }}</loc>
+{%- if post.og_image %}
+    <image:image><image:loc>{{ post.og_image | absolute_url }}</image:loc></image:image>
+{%- else %}
+    <image:image><image:loc>{{ site.url }}/assets/cards/{{ post.mt_basename | default: post.slug }}.jpg</image:loc></image:image>
+{%- endif %}
+  </url>
+{%- endunless %}
+{%- endfor %}
+{%- for page in site.pages %}
+{%- if page.og_image %}
+  <url>
+    <loc>{{ page.url | absolute_url }}</loc>
+    <image:image><image:loc>{{ page.og_image | absolute_url }}</image:loc></image:image>
+  </url>
+{%- endif %}
+{%- endfor %}
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <image:image><image:loc>{{ site.social_card | absolute_url }}</image:loc></image:image>
+  </url>
+</urlset>
